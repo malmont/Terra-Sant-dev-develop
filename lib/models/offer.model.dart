@@ -189,11 +189,24 @@ class OfferForPharCard extends StatelessWidget {
                       width: 400,
                     ),
                     SizedBox(height: getProportionateScreenWidth(30)),
-                    Text(
-                      "offre: ${offer.offer_title}",
-                      style: const TextStyle(color: Colors.black, fontSize: 18),
-                      maxLines: 4,
-                      textAlign: TextAlign.center,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "offre:",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            " ${offer.offer_title}",
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 18),
+                            maxLines: 4,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                     // Text(
                     //   "avlP_id: ${offer.avlP_id}",
@@ -208,80 +221,84 @@ class OfferForPharCard extends StatelessWidget {
                     //   textAlign: TextAlign.center,
                     // ),
                     SizedBox(height: getProportionateScreenWidth(30)),
-                    LikeButton(
-                      countPostion: CountPostion.left,
-                      onTap: (isLiked) {
-                        // if (isLiked) {
-                        //   return Future.value(null);
-                        // }
-                        homepagePharController.setOfferNotNewByPhar(offer);
-                        showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                                  title: Text('Détail'),
-                                  content: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          "description: ${offer.offer_description}",
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 18),
-                                          maxLines: 4,
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ]),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      child: Text("Question?"),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                        showDialog(
-                                            context: context,
-                                            builder: (context) => AlertDialog(
-                                                  title: Text('Contact nous'),
-                                                  content: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        const Text(
-                                                          "Par téléphone",
-                                                        ),
-                                                      ]),
-                                                  actions: <Widget>[
-                                                    TextButton(
-                                                      child: Text(
-                                                          "Call directement"),
-                                                      onPressed: () {
-                                                        FlutterPhoneDirectCaller
-                                                            .callNumber(
-                                                                "+33 0765291731");
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                      },
-                                                    ),
-                                                  ],
-                                                ));
-                                      },
-                                    ),
-                                    TextButton(
-                                      child: Text("OK"),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-                                ));
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: LikeButton(
+                        countPostion: CountPostion.left,
+                        onTap: (isLiked) {
+                          // if (isLiked) {
+                          //   return Future.value(null);
+                          // }
+                          homepagePharController.setOfferNotNewByPhar(offer);
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                    title: Text('Détail'),
+                                    content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            "description: ${offer.offer_description}",
+                                            style: const TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 18),
+                                            maxLines: 4,
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ]),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text("Question?"),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) => AlertDialog(
+                                                    title: const Text(
+                                                        'Contact nous'),
+                                                    content: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: const [
+                                                          Text(
+                                                            "Par téléphone",
+                                                          ),
+                                                        ]),
+                                                    actions: <Widget>[
+                                                      TextButton(
+                                                        child: const Text(
+                                                            "Call directement"),
+                                                        onPressed: () {
+                                                          FlutterPhoneDirectCaller
+                                                              .callNumber(
+                                                                  "+33 0765291731");
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ));
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: Text("OK"),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  ));
 
-                        return Future.value(false);
-                      },
-                      likeBuilder: (bool isLiked) {
-                        return Icon(
-                          Icons.message,
-                          color: Colors.grey,
-                          size: 35,
-                        );
-                      },
+                          return Future.value(false);
+                        },
+                        likeBuilder: (bool isLiked) {
+                          return Icon(
+                            Icons.message,
+                            color: Colors.grey,
+                            size: 35,
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

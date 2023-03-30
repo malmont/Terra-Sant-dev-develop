@@ -307,11 +307,14 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
                 width: 400,
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              Text(
-                "région: ${availabilityUsers.region_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
+              SizedBox(
+                width: 200,
+                child: Text(
+                  "région: ${availabilityUsers.region_candidate}",
+                  style: const TextStyle(color: Colors.black, fontSize: 18),
+                  maxLines: 4,
+                  textAlign: TextAlign.center,
+                ),
               ),
               Text(
                 "date: ${availabilityUsers.date_month_year_candidate}",
@@ -442,100 +445,178 @@ class AvailabilityUsersForShowCard extends StatelessWidget {
         child: Card(
           color: Color(0xFFA3FBF2),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(
                 width: 400,
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              Text(
-                "region: ${availabilityUsers.region_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "region:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.region_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "date: ${availabilityUsers.date_month_year_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "date:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.date_month_year_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "Répetiton: ${availabilityUsers.repeat_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Répetiton:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.repeat_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "Créneaux: ${availabilityUsers.time_of_day_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Créneaux:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.time_of_day_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: getProportionateScreenWidth(30)),
-              LikeButton(
-                countPostion: CountPostion.left,
-                onTap: (isLiked) {
-                  onTapPhone?.call(availabilityUsers.avlUId ?? 0);
-                  showDialog(
-                      context: context,
-                      builder: (_) => ADialog(
-                            initValue: null,
-                            list: homepagePharController
-                                .dropdownTextForMyAVLPdate,
-                            onSend: (selectedMyAVLP) {
-                              homepagePharController.sendDemande(
-                                  context,
-                                  availabilityUsers.avlUId,
-                                  availabilityUsers.user_id,
-                                  selectedMyAVLP);
-                              showDialog(
-                                  context: context,
-                                  builder: (context) => AlertDialog(
-                                        title: Text('Confirmation'),
-                                        content: Text(
-                                            ('Votre demande est prise en compte, on vous organise un RDV au plus vite')),
-                                        actions: <Widget>[
-                                          TextButton(
-                                            child: new Text("Cancel"),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                          TextButton(
-                                            child: Text("ok"),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                        ],
-                                      ));
-                            },
-                          ));
+              SizedBox(height: getProportionateScreenWidth(0)),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    LikeButton(
+                      countPostion: CountPostion.left,
+                      onTap: (isLiked) {
+                        onTapPhone?.call(availabilityUsers.avlUId ?? 0);
+                        showDialog(
+                            context: context,
+                            builder: (_) => ADialog(
+                                  initValue: null,
+                                  list: homepagePharController
+                                      .dropdownTextForMyAVLPdate,
+                                  onSend: (selectedMyAVLP) {
+                                    homepagePharController.sendDemande(
+                                        context,
+                                        availabilityUsers.avlUId,
+                                        availabilityUsers.user_id,
+                                        selectedMyAVLP);
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => AlertDialog(
+                                              title: const Text('Confirmation'),
+                                              content: const Text(
+                                                  ('Votre demande est prise en compte, on vous organise un RDV au plus vite')),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  child: const Text("Cancel"),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                ),
+                                                TextButton(
+                                                  child: const Text("ok"),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                ),
+                                              ],
+                                            ));
+                                  },
+                                ));
 
-                  return Future.value(!isLiked);
-                },
-                likeBuilder: (bool isLiked) {
-                  debugPrint('isLiked: $isLiked');
-                  return Icon(
-                    Icons.phone_forwarded,
-                    color: Colors.grey,
-                    size: 35,
-                  );
-                },
-              ),
-              LikeButton(
-                onTap: (b) {
-                  onTapCV?.call();
-                  return Future.value(false);
-                },
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.picture_as_pdf,
-                    color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-                    size: 35,
-                  );
-                },
+                        return Future.value(!isLiked);
+                      },
+                      likeBuilder: (bool isLiked) {
+                        debugPrint('isLiked: $isLiked');
+                        return const Icon(
+                          Icons.phone_forwarded,
+                          color: Colors.grey,
+                          size: 35,
+                        );
+                      },
+                    ),
+                    LikeButton(
+                      onTap: (b) {
+                        onTapCV?.call();
+                        return Future.value(false);
+                      },
+                      likeBuilder: (bool isLiked) {
+                        return Icon(
+                          Icons.picture_as_pdf,
+                          color:
+                              isLiked ? Colors.deepPurpleAccent : Colors.grey,
+                          size: 35,
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

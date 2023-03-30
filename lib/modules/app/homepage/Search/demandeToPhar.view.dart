@@ -21,7 +21,7 @@ class DemandeToPharView extends GetView<DemandeToPharController> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Mes Demande reçu"),
+          title: const Text("Mes Demandes reçu"),
           leading: BackButton(
             color: Colors.white,
             onPressed: () {

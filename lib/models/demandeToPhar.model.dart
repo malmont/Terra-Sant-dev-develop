@@ -134,119 +134,37 @@ class DemandeToPharForUserCard extends StatelessWidget {
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
-          color: Color(0xFFA3FBF2),
+          color: const Color(0xFFA3FBF2),
           child: Stack(
             children: [
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(
-                    width: 400,
-                  ),
-                  SizedBox(height: getProportionateScreenWidth(30)),
-                  Text(
-                    "demande date: ${avlP.date_month_year_phar}",
-                    style: const TextStyle(color: Colors.black, fontSize: 18),
-                    maxLines: 4,
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    "region: ${phar.ph_region}",
-                    style: const TextStyle(color: Colors.black, fontSize: 18),
-                    maxLines: 4,
-                    textAlign: TextAlign.center,
-                  ),
-                  LikeButton(
-                    countPostion: CountPostion.left,
-                    onTap: (isLiked) {
-                      // if (isLiked) {
-                      //   return Future.value(null);
-                      // }
-                      onTapPhone?.call(demandeToPhar.avlP_id ?? 0);
-
-                      homepagePharController
-                          .setDemandeToPharNotNew(demandeToPhar);
-
-                      // final avlP = homepageController.list1.firstWhere(
-                      //     (element) => element.avlP_id == demandeToPhar.avlP_id);
-
-                      showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                title: Text('Détail'),
-                                content: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        "demandeToPhar status: ${avlP.status_needed}",
-                                      ),
-                                      Text(
-                                        "ph adress: ${phar.phAddress}",
-                                      ),
-                                      Text(
-                                        "CV: ",
-                                      ),
-                                    ]),
-                                actions: <Widget>[
-                                  TextButton(
-                                    child: new Text("cancel"),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  TextButton(
-                                    child: Text("Accepte"),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      ////send mail to terra sante, tell them it's accepted
-                                      homepagePharController
-                                          .sendEmailDemandeFromInterToPhar(
-                                              demandeToPhar.demandeToPhar_id);
-                                      //set accept to Yes
-                                      homepagePharController
-                                          .setDemandeToPharAccepted(
-                                              demandeToPhar);
-                                      //cannot delete anymore
-                                      showDialog(
-                                          context: context,
-                                          builder: (context) => AlertDialog(
-                                                title: Text('Confirmation'),
-                                                content: Text(
-                                                    ('Nous allons vous présenter le contract')),
-                                                actions: <Widget>[
-                                                  // TextButton(
-                                                  //   child: new Text("Cancel"),
-                                                  //   onPressed: () {
-                                                  //     Navigator.of(context).pop();
-                                                  //   },
-                                                  // ),
-                                                  TextButton(
-                                                    child: Text("ok"),
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    },
-                                                  ),
-                                                ],
-                                              ));
-                                    },
-                                  ),
-                                ],
-                              ));
-
-                      return Future.value(false);
-                    },
-                    likeBuilder: (bool isLiked) {
-                      return Icon(
-                        Icons.info,
-                        color: Colors.grey,
-                        size: 35,
-                      );
-                    },
-                  ),
-                  Visibility(
-                    visible: demandeToPhar.accept != 'YES',
-                    child: LikeButton(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(
+                      width: 400,
+                    ),
+                    SizedBox(height: getProportionateScreenWidth(30)),
+                    Text(
+                      "Date demandé: ${avlP.date_month_year_phar}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "region: ${phar.ph_region}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    LikeButton(
                       countPostion: CountPostion.left,
                       onTap: (isLiked) {
                         // if (isLiked) {
@@ -254,38 +172,173 @@ class DemandeToPharForUserCard extends StatelessWidget {
                         // }
                         onTapPhone?.call(demandeToPhar.avlP_id ?? 0);
 
+                        homepagePharController
+                            .setDemandeToPharNotNew(demandeToPhar);
+
+                        // final avlP = homepageController.list1.firstWhere(
+                        //     (element) => element.avlP_id == demandeToPhar.avlP_id);
+
                         showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
-                                  title: Text('Refuser et supprimé？？？'),
+                                  title: const Card(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'DETAILS',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    elevation: 5,
+                                  ),
                                   content: Column(
                                       mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          "Refuser",
+                                        Card(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: SizedBox(
+                                              width: 300,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  const Padding(
+                                                    padding:
+                                                        EdgeInsets.all(2.0),
+                                                    child: Text(
+                                                      "STATUS  DEMANDEUR",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            2.0),
+                                                    child: Text(
+                                                      " ${avlP.status_needed}",
+                                                      style: const TextStyle(
+                                                          fontSize: 17),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Card(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: SizedBox(
+                                              width: 300,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  const Padding(
+                                                    padding:
+                                                        EdgeInsets.all(2.0),
+                                                    child: Text(
+                                                      "ADRESSE Pharmacie ",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            2.0),
+                                                    child: Text(
+                                                      " ${phar.phAddress}",
+                                                      style: const TextStyle(
+                                                          fontSize: 17),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Card(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: SizedBox(
+                                              width: 300,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: const [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(2.0),
+                                                    child: Text(
+                                                      "CV ",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ]),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: new Text("Pas mtn"),
+                                      child: const Text("cancel"),
                                       onPressed: () {
-                                        // homepageController.userSendEmailToTerraAcceptDemandeToPhar(
-                                        // '');
                                         Navigator.of(context).pop();
                                       },
                                     ),
                                     TextButton(
-                                      child: Text("OUI"),
+                                      child: const Text("Accepte"),
                                       onPressed: () {
                                         Navigator.of(context).pop();
-
-                                        //send mail to the mail of this availabilityUser to tell it's been refused
-                                        //send mail to terra sante to tell it's been refused
-                                        //refuse set to yes
+                                        ////send mail to terra sante, tell them it's accepted
                                         homepagePharController
-                                            .setDemandeToPharRefused(
+                                            .sendEmailDemandeFromInterToPhar(
+                                                demandeToPhar.demandeToPhar_id);
+                                        //set accept to Yes
+                                        homepagePharController
+                                            .setDemandeToPharAccepted(
                                                 demandeToPhar);
-                                        //if accepted,cannot delete anymore
+                                        //cannot delete anymore
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: const Text(
+                                                      'Confirmation'),
+                                                  content: const Text(
+                                                      ('Nous allons vous présenter le contrat')),
+                                                  actions: <Widget>[
+                                                    // TextButton(
+                                                    //   child: new Text("Cancel"),
+                                                    //   onPressed: () {
+                                                    //     Navigator.of(context).pop();
+                                                    //   },
+                                                    // ),
+                                                    TextButton(
+                                                      child: const Text("ok"),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                  ],
+                                                ));
                                       },
                                     ),
                                   ],
@@ -294,28 +347,89 @@ class DemandeToPharForUserCard extends StatelessWidget {
                         return Future.value(false);
                       },
                       likeBuilder: (bool isLiked) {
-                        return Icon(
-                          Icons.delete,
+                        return const Icon(
+                          Icons.info,
                           color: Colors.grey,
                           size: 35,
                         );
                       },
                     ),
-                  ),
-                ],
+                    Visibility(
+                      visible: demandeToPhar.accept != 'YES',
+                      child: LikeButton(
+                        countPostion: CountPostion.left,
+                        onTap: (isLiked) {
+                          // if (isLiked) {
+                          //   return Future.value(null);
+                          // }
+                          onTapPhone?.call(demandeToPhar.avlP_id ?? 0);
+
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                    title: const Text('Refuser et supprimé？？？'),
+                                    content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          const Text(
+                                            "Refuser",
+                                          ),
+                                        ]),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: new Text("Pas mtn"),
+                                        onPressed: () {
+                                          // homepageController.userSendEmailToTerraAcceptDemandeToPhar(
+                                          // '');
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: const Text("OUI"),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+
+                                          //send mail to the mail of this availabilityUser to tell it's been refused
+                                          //send mail to terra sante to tell it's been refused
+                                          //refuse set to yes
+                                          homepagePharController
+                                              .setDemandeToPharRefused(
+                                                  demandeToPhar);
+                                          //if accepted,cannot delete anymore
+                                        },
+                                      ),
+                                    ],
+                                  ));
+
+                          return Future.value(false);
+                        },
+                        likeBuilder: (bool isLiked) {
+                          return const Icon(
+                            Icons.delete,
+                            color: Colors.grey,
+                            size: 35,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Positioned(
                   right: 0,
                   top: 0,
                   child: Visibility(
                       visible: demandeToPhar.newOrNot == "YES",
-                      child: Text('Unread'))),
+                      child: const Text('Unread'))),
               Positioned(
                   right: 0,
                   top: 0,
                   child: Visibility(
                       visible: demandeToPhar.accept == "YES",
-                      child: Text('Accepté, En attends')))
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Demande, En attente'),
+                      )))
             ],
           ),
         ),

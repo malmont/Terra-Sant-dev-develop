@@ -36,7 +36,7 @@ class DeclarationView extends GetView<DeclarationController> {
       //         itemBuilder: (context, index) {
       //       return cardslist(index);
       //     })),
-      body: SafeArea(
+      body: const SafeArea(
         child: Pharmacies(),
       ),
     );

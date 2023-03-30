@@ -41,7 +41,7 @@ class RecruAvailabilityView extends GetView<RecruAvailabilityController> {
           // ),
         ],
       ),
-      body: SafeArea(
+      body: const SafeArea(
         // child: SingleChildScrollView(
         //   child: Center(
         //     child: Column(

@@ -137,140 +137,228 @@ class PharmaciesCard extends StatelessWidget {
         // width: getProportionateScreenWidth(width),
         child: Card(
           color: Color(0xFFA3FBF2),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(
-                width: 400,
-              ),
-              SizedBox(height: getProportionateScreenWidth(30)),
-              // Text(
-              //   "ownerId: " + pharmacy.ownerId.toString(),
-              //   style: const TextStyle(color: Colors.black, fontSize: 18),
-              //   maxLines: 2,
-              // ),
-              Text(
-                "NomPhar: ${pharmacy.phName}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-              ),
-              Text(
-                "Address: " + (pharmacy.phAddress ?? ''),
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                "Code postal: ${pharmacy.ph_region}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                "Email: " + (pharmacy.phEmail ?? ''),
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
-              ),
-              // Text(
-              //   "phEmailConf: " + pharmacy.phEmailConf.toString(),
-              //   style: const TextStyle(color: Colors.black, fontSize: 18),
-              //   maxLines: 2,
-              // ),
-              // Text(
-              //   "phId: " + pharmacy.phId.toString(),
-              //   style: const TextStyle(color: Colors.black, fontSize: 18),
-              //   maxLines: 2,
-              // ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: getProportionateScreenWidth(0)),
+                // Text(
+                //   "ownerId: " + pharmacy.ownerId.toString(),
+                //   style: const TextStyle(color: Colors.black, fontSize: 18),
+                //   maxLines: 2,
+                // ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Nom:",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        " ${pharmacy.phName}",
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 18),
+                        maxLines: 2,
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Addresse:",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 240,
+                        child: Text(
+                          (pharmacy.phAddress ?? ''),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                          maxLines: 4,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Code postal: ",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "${pharmacy.ph_region}",
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 18),
+                        maxLines: 4,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Email:",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        (pharmacy.phEmail ?? ''),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 18),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+                // Text(
+                //   "phEmailConf: " + pharmacy.phEmailConf.toString(),
+                //   style: const TextStyle(color: Colors.black, fontSize: 18),
+                //   maxLines: 2,
+                // ),
+                // Text(
+                //   "phId: " + pharmacy.phId.toString(),
+                //   style: const TextStyle(color: Colors.black, fontSize: 18),
+                //   maxLines: 2,
+                // ),
 
-              Text(
-                "Num Tél: ${pharmacy.phPhone}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-              ),
-              // Text(
-              //   "phPhoneConf: " + pharmacy.phPhoneConf.toString(),
-              //   style: const TextStyle(color: Colors.black, fontSize: 18),
-              //   maxLines: 2,
-              // ),
-              SizedBox(height: getProportionateScreenWidth(30)),
-              LikeButton(
-                onTap: (b) {
-                  onTapPencil?.call();
-                  return Future.value(false);
-                },
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.mode_edit,
-                    color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-                    size: 35,
-                  );
-                },
-              ),
-              LikeButton(
-                countPostion: CountPostion.left,
-                onTap: (isLiked) {
-                  // if (isLiked) {
-                  //   return Future.value(null);
-                  // }
-                  //onTapPhone?.call(availabilityUsers.avlUId ?? 0);
-                  showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                            title: Text('Confirmation'),
-                            content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [Text(('Vous voulez supprimer?'))]),
-                            actions: <Widget>[
-                              TextButton(
-                                child: new Text("Cancel"),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                              TextButton(
-                                child: Text("Oui"),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                  pharmacyService.deletePhar(pharmacy.phId);
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) => AlertDialog(
-                                            title: Text('Confirmation'),
-                                            content: Text(('Déja supprimé')),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                child: new Text("Cancel"),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              ),
-                                              TextButton(
-                                                child: Text("ok"),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                  homepagePharController
-                                                      .onRefresh();
-                                                },
-                                              ),
-                                            ],
-                                          ));
-                                },
-                              ),
-                            ],
-                          ));
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Num Tél:",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        " ${pharmacy.phPhone}",
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 18),
+                        maxLines: 2,
+                      ),
+                    ],
+                  ),
+                ),
+                // Text(
+                //   "phPhoneConf: " + pharmacy.phPhoneConf.toString(),
+                //   style: const TextStyle(color: Colors.black, fontSize: 18),
+                //   maxLines: 2,
+                // ),
+                SizedBox(height: getProportionateScreenWidth(30)),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      LikeButton(
+                        onTap: (b) {
+                          onTapPencil?.call();
+                          return Future.value(false);
+                        },
+                        likeBuilder: (bool isLiked) {
+                          return Icon(
+                            Icons.mode_edit,
+                            color:
+                                isLiked ? Colors.deepPurpleAccent : Colors.grey,
+                            size: 35,
+                          );
+                        },
+                      ),
+                      LikeButton(
+                        countPostion: CountPostion.left,
+                        onTap: (isLiked) {
+                          // if (isLiked) {
+                          //   return Future.value(null);
+                          // }
+                          //onTapPhone?.call(availabilityUsers.avlUId ?? 0);
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                    title: const Text('Confirmation'),
+                                    content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: const [
+                                          Text(('Vous voulez supprimer?'))
+                                        ]),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text("Cancel"),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: const Text("Oui"),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          pharmacyService
+                                              .deletePhar(pharmacy.phId);
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) => AlertDialog(
+                                                    title: const Text(
+                                                        'Confirmation'),
+                                                    content: const Text(
+                                                        ('Déja supprimé')),
+                                                    actions: <Widget>[
+                                                      TextButton(
+                                                        child: const Text(
+                                                            "Cancel"),
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                      ),
+                                                      TextButton(
+                                                        child: const Text("ok"),
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                          homepagePharController
+                                                              .onRefresh();
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ));
+                                        },
+                                      ),
+                                    ],
+                                  ));
 
-                  return Future.value(false);
-                },
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.delete,
-                    color: Colors.grey,
-                    size: 35,
-                  );
-                },
-              ),
-            ],
+                          return Future.value(false);
+                        },
+                        likeBuilder: (bool isLiked) {
+                          return const Icon(
+                            Icons.delete,
+                            color: Colors.grey,
+                            size: 35,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

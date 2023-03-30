@@ -249,7 +249,8 @@ class AvailabilityPharsForPhars extends StatelessWidget {
                 availabilityPhars: availabilityPhars,
                 onTapPencil: () {
                   Get.toNamed(Routes.editAVLP,
-                      arguments: availabilityPhars); //Passing the information to the next page
+                      arguments:
+                          availabilityPhars); //Passing the information to the next page
                 },
               );
             },
@@ -276,7 +277,8 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final index = homepageController.listAllPhar //get the information of the pharmacie which corresponds to this availabilityPharmacie
+    final index = homepageController
+        .listAllPhar //get the information of the pharmacie which corresponds to this availabilityPharmacie
         .indexWhere((element) => element.phId == availabilityPhars.ph_id);
     final phar = index != -1 ? homepageController.listAllPhar[index] : null;
     if (phar == null) {
@@ -296,11 +298,23 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                 width: 400,
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              Text(
-                "date: ${availabilityPhars.date_month_year_phar}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Date:",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      " ${availabilityPhars.date_month_year_phar}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
               // Text(
               //   "Créneaux: ${availabilityPhars.time_of_day_phar}",
@@ -308,17 +322,41 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
               //   maxLines: 4,
               //   textAlign: TextAlign.center,
               // ),
-              Text(
-                "ph_adress: ${phar.phAddress}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "ph_adress:",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      " ${phar.phAddress}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "ph_region: ${availabilityPhars.ph_region}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "ph_region: ",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "${availabilityPhars.ph_region}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
               // Text(
               //   "Répetition: ${availabilityPhars.repeat_phar}",
@@ -326,11 +364,23 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
               //   maxLines: 2,
               //   textAlign: TextAlign.center,
               // ),
-              Text(
-                "Status besoin: ${availabilityPhars.status_needed}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Status besoin: ",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      " ${availabilityPhars.status_needed}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
 
@@ -349,7 +399,7 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                            title: Text('Détail: '),
+                            title: const Text('Détail: '),
                             content: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -372,7 +422,7 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                                   child: Text("Demander"),
                                   onPressed: () {
                                     Navigator.of(context).pop();
-                                    //set mail to terra sante 
+                                    //set mail to terra sante
 
                                     showDialog(
                                         context: context,
@@ -392,13 +442,13 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                                                     context: context,
                                                     builder: (context) =>
                                                         AlertDialog(
-                                                          title: Text(
+                                                          title: const Text(
                                                               'Confirmation'),
-                                                          content: Text(
+                                                          content: const Text(
                                                               ('Si il accepet, nous allons vous contacter par mail')),
                                                           actions: <Widget>[
                                                             TextButton(
-                                                              child: new Text(
+                                                              child: const Text(
                                                                   "Cancel"),
                                                               onPressed: () {
                                                                 Navigator.of(
@@ -649,13 +699,13 @@ class AvailabilityPharsForEditCard extends StatelessWidget {
     this.width = 140,
     this.aspectRetio = 1.02,
     required this.availabilityPhars,
-    this.onTapPencil, 
+    this.onTapPencil,
     this.onTapPoubelle,
   }) : super(key: key);
 
   final double width, aspectRetio;
   final AvailabilityPhar availabilityPhars;
-  final VoidCallback? onTapPencil; 
+  final VoidCallback? onTapPencil;
   final VoidCallback? onTapPoubelle;
 
   @override
@@ -672,108 +722,170 @@ class AvailabilityPharsForEditCard extends StatelessWidget {
               const SizedBox(
                 width: 400,
               ),
+              SizedBox(height: getProportionateScreenWidth(0)),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Temps:",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      " ${availabilityPhars.time_of_day_phar}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "date:",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      " ${availabilityPhars.date_month_year_phar}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Répetition:",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      " ${availabilityPhars.repeat_phar}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Status besoin:",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      " ${availabilityPhars.status_needed}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              Text(
-                "Temps: ${availabilityPhars.time_of_day_phar}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                "date: ${availabilityPhars.date_month_year_phar}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                "Répetition: ${availabilityPhars.repeat_phar}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                "Status besoin: ${availabilityPhars.status_needed}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: getProportionateScreenWidth(30)),
-              LikeButton(
-                onTap: (b) {
-                  onTapPencil?.call();
-                  return Future.value(false);
-                },
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.mode_edit,
-                    color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-                    size: 35,
-                  );
-                },
-              ),
-              LikeButton(
-                countPostion: CountPostion.left,
-                onTap: (isLiked) {
-                  // if (isLiked) {
-                  //   return Future.value(null);
-                  // }
-                  //onTapPhone?.call(availabilityUsers.avlUId ?? 0);
-                  showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                            title: Text('Confirmation'),
-                            content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [Text(('Vous voulez supprimer'))]),
-                            actions: <Widget>[
-                              TextButton(
-                                child: new Text("Cancel"),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                              TextButton(
-                                child: Text("Oui"),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                  availabilityPharService
-                                      .deleteAvl(availabilityPhars.avlP_id);
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    LikeButton(
+                      onTap: (b) {
+                        onTapPencil?.call();
+                        return Future.value(false);
+                      },
+                      likeBuilder: (bool isLiked) {
+                        return Icon(
+                          Icons.mode_edit,
+                          color:
+                              isLiked ? Colors.deepPurpleAccent : Colors.grey,
+                          size: 35,
+                        );
+                      },
+                    ),
+                    LikeButton(
+                      countPostion: CountPostion.left,
+                      onTap: (isLiked) {
+                        // if (isLiked) {
+                        //   return Future.value(null);
+                        // }
+                        //onTapPhone?.call(availabilityUsers.avlUId ?? 0);
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: Text('Confirmation'),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(('Vous voulez supprimer'))
+                                      ]),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: new Text("Cancel"),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: Text("Oui"),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        availabilityPharService.deleteAvl(
+                                            availabilityPhars.avlP_id);
 
-                                  homepagePharController.onRefresh();
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) => AlertDialog(
-                                            title: Text('Confirmation'),
-                                            content: Text(('Déja Supprimé')),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                child: new Text("Cancel"),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              ),
-                                              TextButton(
-                                                child: Text("ok"),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              ),
-                                            ],
-                                          ));
-                                },
-                              ),
-                            ],
-                          ));
+                                        homepagePharController.onRefresh();
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: Text('Confirmation'),
+                                                  content:
+                                                      Text(('Déja Supprimé')),
+                                                  actions: <Widget>[
+                                                    TextButton(
+                                                      child: new Text("Cancel"),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                    TextButton(
+                                                      child: Text("ok"),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                  ],
+                                                ));
+                                      },
+                                    ),
+                                  ],
+                                ));
 
-                  return Future.value(false);
-                },
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.delete,
-                    color: Colors.grey,
-                    size: 35,
-                  );
-                },
+                        return Future.value(false);
+                      },
+                      likeBuilder: (bool isLiked) {
+                        return const Icon(
+                          Icons.delete,
+                          color: Colors.grey,
+                          size: 35,
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

@@ -36,7 +36,7 @@ class HomepagePharView extends GetView<HomepagePharController> {
               const SliverToBoxAdapter(
                 child: Text('Matching par Temps et Region'),
               ),
-              AvailabilityUsersForPhars(),
+              const AvailabilityUsersForPhars(),
               SliverList(
                   delegate: SliverChildBuilderDelegate(
                       (context, index) => Container(
@@ -47,7 +47,7 @@ class HomepagePharView extends GetView<HomepagePharController> {
               const SliverToBoxAdapter(
                 child: Text('Matching seulment par Region'),
               ),
-              AvailabilityUsersForPharsOnlyMatchWithRegion(),
+              const AvailabilityUsersForPharsOnlyMatchWithRegion(),
               SliverList(
                   delegate: SliverChildBuilderDelegate(
                       (context, index) => Container(
@@ -58,7 +58,7 @@ class HomepagePharView extends GetView<HomepagePharController> {
               const SliverToBoxAdapter(
                 child: Text('Matching seulment par Temps'),
               ),
-              AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement(),
+              const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement(),
             ],
           ),
         )
@@ -68,22 +68,22 @@ class HomepagePharView extends GetView<HomepagePharController> {
             ),
         drawer: NavigationDrawerWidget(),
         bottomNavigationBar: ConvexAppBar(items: [
-          TabItem(
+          const TabItem(
             icon: Icons.groups,
             title: 'Acceuil',
           ),
-          TabItem(
+          const TabItem(
             icon: Icons.list,
             title: 'MesPhars',
           ),
-          TabItem(
+          const TabItem(
             icon: Icons.person_search,
             title: 'I Need',
           ),
           TabItem(
             icon: Stack(
               children: [
-                Icon(Icons.work, color: Colors.white),
+                const Icon(Icons.work, color: Colors.white),
                 Positioned(
                   right: 0,
                   top: 0,
