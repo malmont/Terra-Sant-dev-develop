@@ -25,7 +25,7 @@ class DemandeView extends GetView<DemandeController> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Mes Demande reçu"),
+          title: const Text("Demandes en cours"),
           leading: BackButton(
             color: Colors.white,
             onPressed: () {
@@ -35,7 +35,7 @@ class DemandeView extends GetView<DemandeController> {
             },
           ),
         ),
-        body: SafeArea(
+        body: const SafeArea(
           child: DemandeForUsers(),
         ),
       ),

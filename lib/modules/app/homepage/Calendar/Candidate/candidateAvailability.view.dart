@@ -44,7 +44,7 @@ class CandidateAvailabilityView
           // ),
         ],
       ),
-      body: SafeArea(
+      body: const SafeArea(
         // child: SingleChildScrollView(
         // child: Center(
         //   child: Column(

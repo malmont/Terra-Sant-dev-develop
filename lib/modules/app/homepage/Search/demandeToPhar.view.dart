@@ -21,7 +21,7 @@ class DemandeToPharView extends GetView<DemandeToPharController> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Mes Demandes reçu"),
+          title: const Text("Demandes en cours"),
           leading: BackButton(
             color: Colors.white,
             onPressed: () {
@@ -31,7 +31,7 @@ class DemandeToPharView extends GetView<DemandeToPharController> {
             },
           ),
         ),
-        body: SafeArea(
+        body: const SafeArea(
           //child: DemandeForUsers(),
           child: DemandeToPharForUsers(),
         ),

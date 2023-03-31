@@ -13,7 +13,7 @@ class RDVFixeRecruView extends GetView<RDVFixeRecruController> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("RDV fixé pour vous"),
+        title: const Text("Rendez-vous acceptés"),
         leading: BackButton(
           color: Colors.white,
           onPressed: () {

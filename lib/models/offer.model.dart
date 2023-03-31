@@ -173,7 +173,7 @@ class OfferForPharCard extends StatelessWidget {
         child: SizedBox(
           // width: getProportionateScreenWidth(width),
           child: Card(
-            color: Color(0xFFA3FBF2),
+            color: const Color(0xFFA3FBF2),
             child: Stack(
               children: [
                 Positioned(
@@ -181,7 +181,7 @@ class OfferForPharCard extends StatelessWidget {
                     top: 0,
                     child: Visibility(
                         visible: offer.newOrNotByPhar == "YES",
-                        child: Text('new'))),
+                        child: const Text('new'))),
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -233,7 +233,7 @@ class OfferForPharCard extends StatelessWidget {
                           showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                    title: Text('Détail'),
+                                    title: const Text('Détail'),
                                     content: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -281,7 +281,7 @@ class OfferForPharCard extends StatelessWidget {
                                         },
                                       ),
                                       TextButton(
-                                        child: Text("OK"),
+                                        child: const Text("OK"),
                                         onPressed: () {
                                           Navigator.of(context).pop();
                                         },
@@ -292,7 +292,7 @@ class OfferForPharCard extends StatelessWidget {
                           return Future.value(false);
                         },
                         likeBuilder: (bool isLiked) {
-                          return Icon(
+                          return const Icon(
                             Icons.message,
                             color: Colors.grey,
                             size: 35,
@@ -310,7 +310,7 @@ class OfferForPharCard extends StatelessWidget {
 }
 
 class OfferForUserCard extends StatelessWidget {
-  OfferForUserCard({
+  const OfferForUserCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -329,7 +329,7 @@ class OfferForUserCard extends StatelessWidget {
         child: SizedBox(
           // width: getProportionateScreenWidth(width),
           child: Card(
-            color: Color(0xFFA3FBF2),
+            color: const Color(0xFFA3FBF2),
             child: Stack(
               children: [
                 Positioned(
@@ -337,7 +337,7 @@ class OfferForUserCard extends StatelessWidget {
                     top: 0,
                     child: Visibility(
                         visible: offer.newOrNot == "YES",
-                        child: Text('Unread'))),
+                        child: const Text('Unread'))),
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -387,14 +387,14 @@ class OfferForUserCard extends StatelessWidget {
                                                   content: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
-                                                      children: [
-                                                        const Text(
+                                                      children: const [
+                                                        Text(
                                                           "Par téléphone",
                                                         ),
                                                       ]),
                                                   actions: <Widget>[
                                                     TextButton(
-                                                      child: Text(
+                                                      child: const Text(
                                                           "Call directement"),
                                                       onPressed: () {
                                                         FlutterPhoneDirectCaller
@@ -409,7 +409,7 @@ class OfferForUserCard extends StatelessWidget {
                                       },
                                     ),
                                     TextButton(
-                                      child: Text("OK"),
+                                      child: const Text("OK"),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
@@ -420,7 +420,7 @@ class OfferForUserCard extends StatelessWidget {
                         return Future.value(false);
                       },
                       likeBuilder: (bool isLiked) {
-                        return Icon(
+                        return const Icon(
                           Icons.message,
                           color: Colors.grey,
                           size: 35,

@@ -10,7 +10,7 @@ class RDVFixeCandidateView extends GetView<RDVFixeCandidateController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Offre fixé'),
+        title: const Text('Offres validées'),
         leading: BackButton(
           color: Colors.white,
           onPressed: () {
@@ -22,7 +22,7 @@ class RDVFixeCandidateView extends GetView<RDVFixeCandidateController> {
           },
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: OfferForUsers(),
       ),
     );

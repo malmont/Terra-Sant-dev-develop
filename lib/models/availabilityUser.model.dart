@@ -278,7 +278,7 @@ class AvailabilityUsersForUsers extends StatelessWidget {
 }
 
 class AvailabilityUsersForEditCard extends StatelessWidget {
-  AvailabilityUsersForEditCard({
+  const AvailabilityUsersForEditCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -299,7 +299,7 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
-          color: Color(0xFFA3FBF2),
+          color: const Color(0xFFA3FBF2),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -307,111 +307,190 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
                 width: 400,
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              SizedBox(
-                width: 200,
-                child: Text(
-                  "région: ${availabilityUsers.region_candidate}",
-                  style: const TextStyle(color: Colors.black, fontSize: 18),
-                  maxLines: 4,
-                  textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "region:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.region_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                "date: ${availabilityUsers.date_month_year_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 4,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "date:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.date_month_year_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "repeat: ${availabilityUsers.repeat_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Répetiton:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.repeat_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
-              Text(
-                "créneaux: ${availabilityUsers.time_of_day_candidate}",
-                style: const TextStyle(color: Colors.black, fontSize: 18),
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Créneaux:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      " ${availabilityUsers.time_of_day_candidate}",
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              LikeButton(
-                onTap: (b) {
-                  onTapPencil?.call();
-                  return Future.value(false);
-                },
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.mode_edit,
-                    color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-                    size: 35,
-                  );
-                },
-              ),
-              LikeButton(
-                onTap: (isLiked) {
-                  // if (isLiked) {
-                  //   return Future.value(null);
-                  // }
-                  //onTapPhone?.call(availabilityUsers.avlUId ?? 0);
-                  showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                            title: Text('Confirmation'),
-                            content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(('Vous voulez le supprimer?'))
-                                ]),
-                            actions: <Widget>[
-                              TextButton(
-                                child: new Text("Cancel"),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                              TextButton(
-                                child: Text("Oui"),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                  availabilityUserService
-                                      .deleteAvl(availabilityUsers.avlUId);
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    LikeButton(
+                      onTap: (b) {
+                        onTapPencil?.call();
+                        return Future.value(false);
+                      },
+                      likeBuilder: (bool isLiked) {
+                        return Icon(
+                          Icons.mode_edit,
+                          color:
+                              isLiked ? Colors.deepPurpleAccent : Colors.grey,
+                          size: 35,
+                        );
+                      },
+                    ),
+                    LikeButton(
+                      onTap: (isLiked) {
+                        // if (isLiked) {
+                        //   return Future.value(null);
+                        // }
+                        //onTapPhone?.call(availabilityUsers.avlUId ?? 0);
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: const Text('Confirmation'),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: const [
+                                        Text(('Vous voulez le supprimer?'))
+                                      ]),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: const Text("Cancel"),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: const Text("Oui"),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        availabilityUserService.deleteAvl(
+                                            availabilityUsers.avlUId);
 
-                                  homepageController.onRefresh();
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) => AlertDialog(
-                                            title: Text('Confirmation'),
-                                            content: Text(('déja supprimé')),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                child: new Text("Cancel"),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              ),
-                                              TextButton(
-                                                child: Text("ok"),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              ),
-                                            ],
-                                          ));
-                                },
-                              ),
-                            ],
-                          ));
+                                        homepageController.onRefresh();
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: const Text(
+                                                      'Confirmation'),
+                                                  content: const Text(
+                                                      ('déja supprimé')),
+                                                  actions: <Widget>[
+                                                    TextButton(
+                                                      child:
+                                                          const Text("Cancel"),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                    TextButton(
+                                                      child: const Text("ok"),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                  ],
+                                                ));
+                                      },
+                                    ),
+                                  ],
+                                ));
 
-                  return Future.value(false);
-                },
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.delete,
-                    color: Colors.grey,
-                    size: 35,
-                  );
-                },
+                        return Future.value(false);
+                      },
+                      likeBuilder: (bool isLiked) {
+                        return const Icon(
+                          Icons.delete,
+                          color: Colors.grey,
+                          size: 35,
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -422,7 +501,7 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
 }
 
 class AvailabilityUsersForShowCard extends StatelessWidget {
-  AvailabilityUsersForShowCard({
+  const AvailabilityUsersForShowCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
