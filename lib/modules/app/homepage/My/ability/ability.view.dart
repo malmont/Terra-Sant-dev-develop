@@ -28,7 +28,7 @@ class AbilityView extends GetView<AbilityController> {
               options: controller.dropdownText,
               whenEmpty: 'Select State Management Library',
               onChanged: (value) {
-                controller.selectedDropdownText.value = value;
+                // controller.selectedDropdownText.value = value;
                 controller.selectedOption.value = "";
                 controller.selectedDropdownText.value.forEach((element) {
                   controller.selectedOption.value =
@@ -45,7 +45,7 @@ class AbilityView extends GetView<AbilityController> {
               options: controller.options,
               whenEmpty: 'Select State Management Library',
               onChanged: (value) {
-                controller.selectedOptionList.value = value;
+                // controller.selectedOptionList.value = value;
                 controller.selectedOption2.value = "";
                 controller.selectedOptionList.value.forEach((element) {
                   controller.selectedOption2.value =
