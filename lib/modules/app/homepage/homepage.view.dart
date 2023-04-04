@@ -107,7 +107,7 @@ class HomepageView extends GetView<HomepageController> {
           ),
           const TabItem(
             icon: Icons.event_available,
-            title: 'Calenderier',
+            title: 'Calendrier',
           ),
           // TabItem(
           //   icon: Icons.work,

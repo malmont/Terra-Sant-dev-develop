@@ -261,7 +261,7 @@ class AvailabilityPharsForPhars extends StatelessWidget {
 }
 
 class AvailabilityPharsForShowCard extends StatelessWidget {
-  AvailabilityPharsForShowCard({
+  const AvailabilityPharsForShowCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -290,7 +290,7 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
-          color: Color(0xFFA3FBF2),
+          color: const Color(0xFFA3FBF2),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -399,27 +399,95 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                            title: const Text('Détail: '),
+                            title: const Card(
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  'DETAILS',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              elevation: 5,
+                            ),
                             content: Column(
                                 mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Répetition: ${availabilityPhars.repeat_phar}",
+                                  Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SizedBox(
+                                        width: 300,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const Padding(
+                                              padding: EdgeInsets.all(2.0),
+                                              child: Text(
+                                                "Répetition",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 20),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(2.0),
+                                              child: Text(
+                                                " ${availabilityPhars.repeat_phar}",
+                                                style: const TextStyle(
+                                                    fontSize: 17),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                  Text(
-                                    "Créneaux: ${availabilityPhars.time_of_day_phar}",
+                                  Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SizedBox(
+                                        width: 300,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const Padding(
+                                              padding: EdgeInsets.all(2.0),
+                                              child: Text(
+                                                "Créneaux",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 20),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(2.0),
+                                              child: Text(
+                                                " ${availabilityPhars.time_of_day_phar}",
+                                                style: const TextStyle(
+                                                    fontSize: 17),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ]),
                             actions: <Widget>[
                               TextButton(
-                                child: new Text("cancel"),
+                                child: const Text("cancel"),
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                   //set 'show' to no
                                 },
                               ),
                               TextButton(
-                                  child: Text("Demander"),
+                                  child: const Text("Demander"),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                     //set mail to terra sante
@@ -457,7 +525,8 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                                                               },
                                                             ),
                                                             TextButton(
-                                                              child: Text("ok"),
+                                                              child: const Text(
+                                                                  "ok"),
                                                               onPressed: () {
                                                                 Navigator.of(
                                                                         context)
@@ -610,7 +679,7 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                   return Future.value(!isLiked);
                 },
                 likeBuilder: (bool isLiked) {
-                  return Icon(
+                  return const Icon(
                     Icons.phone_forwarded,
                     color: Colors.grey,
                     size: 35,

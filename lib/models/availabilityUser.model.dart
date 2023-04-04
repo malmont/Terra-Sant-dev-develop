@@ -730,10 +730,22 @@ class _ADialogState extends State<ADialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Confirmation'),
+      title: const Card(
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            'Confirmations',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        elevation: 5,
+      ),
       content: Column(mainAxisSize: MainAxisSize.min, children: [
-        const Text(
-          "Choisir entre mes besoins:",
+        const SizedBox(
+          width: 300,
+          child: Text(
+            "Choisir entre mes besoins:",
+          ),
         ),
         DropdownButton<AvailabilityPhar?>(
           isExpanded: true,

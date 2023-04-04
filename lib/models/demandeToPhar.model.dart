@@ -370,8 +370,8 @@ class DemandeToPharForUserCard extends StatelessWidget {
                                     title: const Text('Refuser et supprimé？？？'),
                                     content: Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          const Text(
+                                        children: const [
+                                          Text(
                                             "Refuser",
                                           ),
                                         ]),

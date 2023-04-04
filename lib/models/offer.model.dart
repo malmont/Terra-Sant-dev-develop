@@ -191,12 +191,15 @@ class OfferForPharCard extends StatelessWidget {
                     SizedBox(height: getProportionateScreenWidth(30)),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Row(
+                      child: Column(
                         children: [
-                          const Text(
-                            "offre:",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "OFFRE:",
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
                           ),
                           Text(
                             " ${offer.offer_title}",
@@ -233,7 +236,17 @@ class OfferForPharCard extends StatelessWidget {
                           showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                    title: const Text('Détail'),
+                                    title: const Card(
+                                      child: Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          'DETAILS',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      elevation: 5,
+                                    ),
                                     content: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -254,8 +267,20 @@ class OfferForPharCard extends StatelessWidget {
                                           showDialog(
                                               context: context,
                                               builder: (context) => AlertDialog(
-                                                    title: const Text(
-                                                        'Contact nous'),
+                                                    title: const Card(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsets.all(8.0),
+                                                        child: Text(
+                                                          'CONTACT',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                      ),
+                                                      elevation: 5,
+                                                    ),
                                                     content: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.min,

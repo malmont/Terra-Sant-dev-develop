@@ -23,7 +23,7 @@ class RDVFixeRecruView extends GetView<RDVFixeRecruController> {
           },
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: OfferForPhars(),
       ),
     );
