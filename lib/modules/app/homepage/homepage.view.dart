@@ -36,7 +36,7 @@ class HomepageView extends GetView<HomepageController> {
                   const SliverToBoxAdapter(
                     child: Text('Matching par Temps et Region'),
                   ),
-                  AvailabilityPharsForUsers(),
+                  const AvailabilityPharsForUsers(),
                   SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (context, index) => Container(
@@ -47,7 +47,7 @@ class HomepageView extends GetView<HomepageController> {
                   const SliverToBoxAdapter(
                     child: Text('Matching seulment par Region'),
                   ),
-                  AvailabilityPharsForUsersOnlyMatchWithRegion(),
+                  const AvailabilityPharsForUsersOnlyMatchWithRegion(),
                   SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (context, index) => Container(

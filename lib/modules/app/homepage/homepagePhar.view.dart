@@ -13,12 +13,97 @@ class HomepagePharView extends GetView<HomepagePharController> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    updateController(dynamic value) {}
+    int Matching = 1;
+    Key key1 = GlobalKey();
+    Key key2 = GlobalKey();
+    Key key3 = GlobalKey();
 
     return GetBuilder<HomepagePharController>(builder: (logic) {
       return Scaffold(
-        appBar: AppBar(
-          title: const Text("Colaborateur Disponible"),
-          //centerTitle: true,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(236.0),
+          child: AppBar(
+            title: const Text("Colaborateur Disponible"),
+            flexibleSpace: ListView(children: [
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: DropdownButtonFormField<String?>(
+                  dropdownColor: const Color(0xFFA3FBF2),
+                  decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(width: 2.0, color: Colors.white),
+                          borderRadius: BorderRadius.circular(15.0)),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              width: 1.0, color: Color(0xFFA3FBF2)),
+                          borderRadius: BorderRadius.circular(15.0)),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0))),
+                  value: "Temps et région",
+                  onChanged: (value) {
+                    if (value == "") {
+                      Matching = 1;
+                    } else if (value == "") {
+                      Matching = 2;
+                    } else if (value == "") {
+                      Matching = 3;
+                    }
+                  },
+                  onSaved: (value) {
+                    updateController(value);
+                  },
+                  items: <DropdownMenuItem<String>>[
+                    DropdownMenuItem(
+                      value: "Temps et région",
+                      child: Row(
+                        children: const [
+                          Icon(Icons.add_task, size: 30.0, color: Colors.black),
+                          SizedBox(width: 10),
+                          Text("Temps et région",
+                              style: TextStyle(color: Colors.black)),
+                        ],
+                      ),
+                    ),
+                    DropdownMenuItem(
+                      value: "Région",
+                      child: Row(
+                        children: const [
+                          Icon(Icons.timeline_rounded,
+                              size: 30.0, color: Colors.black),
+                          SizedBox(width: 10),
+                          Text(
+                            "Région",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
+                    DropdownMenuItem(
+                      value: "Temps",
+                      child: Row(
+                        children: const [
+                          Icon(Icons.update, size: 30.0, color: Colors.black),
+                          SizedBox(width: 10),
+                          Text(
+                            "Temps",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ]),
+            //centerTitle: true,
+          ),
         ),
         body: SafeArea(
             child: EasyRefresh(
@@ -26,39 +111,52 @@ class HomepagePharView extends GetView<HomepagePharController> {
           onRefresh: logic.onRefresh,
           child: CustomScrollView(
             slivers: [
-              SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => Container(
-                            height: 5,
-                            color: Colors.red,
-                          ),
-                      childCount: 4)),
-              const SliverToBoxAdapter(
-                child: Text('Matching par Temps et Region'),
-              ),
-              const AvailabilityUsersForPhars(),
-              SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => Container(
-                            height: 5,
-                            color: Colors.black,
-                          ),
-                      childCount: 4)),
-              const SliverToBoxAdapter(
-                child: Text('Matching seulment par Region'),
-              ),
-              const AvailabilityUsersForPharsOnlyMatchWithRegion(),
-              SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => Container(
-                            height: 5,
-                            color: Colors.yellow,
-                          ),
-                      childCount: 4)),
-              const SliverToBoxAdapter(
-                child: Text('Matching seulment par Temps'),
-              ),
-              const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement(),
+              if (Matching == 1) const AvailabilityUsersForPhars(),
+              if (Matching == 2)
+                const AvailabilityUsersForPharsOnlyMatchWithRegion(),
+              if (Matching == 3)
+                const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement()
+
+              // SliverList(
+              //     delegate: SliverChildBuilderDelegate(
+              //         (context, index) => Container(
+              //               height: 5,
+              //               color: Colors.red,
+              //             ),
+              //         childCount: 4)),
+              // const SliverToBoxAdapter(
+              //   child: Text('Matching par Temps et Region'),
+              // ),
+              // Offstage(
+              //     offstage: Matching == 1 ? true : false,
+              //     child: const AvailabilityUsersForPhars()),
+              // SliverList(
+              //     delegate: SliverChildBuilderDelegate(
+              //         (context, index) => Container(
+              //               height: 5,
+              //               color: Colors.black,
+              //             ),
+              //         childCount: 4)),
+              // const SliverToBoxAdapter(
+              //   child: Text('Matching seulment par Region'),
+              // ),
+              // Offstage(
+              //     offstage: Matching == 1 ? true : false,
+              //     child: const AvailabilityUsersForPharsOnlyMatchWithRegion()),
+              // SliverList(
+              //     delegate: SliverChildBuilderDelegate(
+              //         (context, index) => Container(
+              //               height: 5,
+              //               color: Colors.yellow,
+              //             ),
+              //         childCount: 4)),
+              // const SliverToBoxAdapter(
+              //   child: Text('Matching seulment par Temps'),
+              // ),
+              // Offstage(
+              //     offstage: Matching == 1 ? true : false,
+              //     child:
+              //         const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement()),
             ],
           ),
         )
