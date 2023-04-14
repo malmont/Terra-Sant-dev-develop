@@ -30,7 +30,7 @@ class HomepageController extends GetxController with StateMixin {
   List<AvailabilityUser> list2 = []; //all avlU of this user
   List<Offer> listAllOffer = [];
   List<Demande> listAllDemande = [];
-
+  var matching = 1.obs;
   var unReadMessage = 0.obs;
   var unReadOffer = 0.obs;
 
@@ -306,6 +306,10 @@ class HomepageController extends GetxController with StateMixin {
       update();
       _controller.finishRefresh();
     }
+  }
+
+  selectListePhar(int v) {
+    matching.value = v;
   }
 
   Future ShowAllOfferUser() async {

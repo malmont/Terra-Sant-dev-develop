@@ -286,10 +286,13 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(0)),
+      padding: const EdgeInsets.all(15),
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
           color: const Color(0xFFA3FBF2),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -322,20 +325,28 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
               //   maxLines: 4,
               //   textAlign: TextAlign.center,
               // ),
+              const SizedBox(
+                height: 5,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "ph_adress:",
+                      "Addresse:",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Text(
-                      " ${phar.phAddress}",
-                      style: const TextStyle(color: Colors.black, fontSize: 18),
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
+                    SizedBox(
+                      width: 250,
+                      child: Text(
+                        " ${phar.phAddress}",
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 18),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),
@@ -345,7 +356,7 @@ class AvailabilityPharsForShowCard extends StatelessWidget {
                 child: Row(
                   children: [
                     const Text(
-                      "ph_region: ",
+                      "Région: ",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),

@@ -13,12 +13,7 @@ class HomepagePharView extends GetView<HomepagePharController> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    updateController(dynamic value) {}
-    int Matching = 1;
-    Key key1 = GlobalKey();
-    Key key2 = GlobalKey();
-    Key key3 = GlobalKey();
-
+    
     return GetBuilder<HomepagePharController>(builder: (logic) {
       return Scaffold(
         appBar: PreferredSize(
@@ -48,16 +43,16 @@ class HomepagePharView extends GetView<HomepagePharController> {
                           borderRadius: BorderRadius.circular(15.0))),
                   value: "Temps et région",
                   onChanged: (value) {
-                    if (value == "") {
-                      Matching = 1;
-                    } else if (value == "") {
-                      Matching = 2;
-                    } else if (value == "") {
-                      Matching = 3;
+                    if (value == "Temps et région") {
+                      logic.selectListePhar(1);
+                    } else if (value == "Région") {
+                      logic.selectListePhar(2);
+                    } else if (value == "Temps") {
+                      logic.selectListePhar(3);
                     }
                   },
                   onSaved: (value) {
-                    updateController(value);
+                    
                   },
                   items: <DropdownMenuItem<String>>[
                     DropdownMenuItem(
@@ -109,56 +104,59 @@ class HomepagePharView extends GetView<HomepagePharController> {
             child: EasyRefresh(
           controller: logic.controller,
           onRefresh: logic.onRefresh,
-          child: CustomScrollView(
-            slivers: [
-              if (Matching == 1) const AvailabilityUsersForPhars(),
-              if (Matching == 2)
-                const AvailabilityUsersForPharsOnlyMatchWithRegion(),
-              if (Matching == 3)
-                const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement()
+          child: Obx(() {
+            return CustomScrollView(
+              slivers: [
+                if (controller.matching.value == 1)
+                  const AvailabilityUsersForPhars(),
+                if (controller.matching.value == 2)
+                  const AvailabilityUsersForPharsOnlyMatchWithRegion(),
+                if (controller.matching.value == 3)
+                  const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement()
 
-              // SliverList(
-              //     delegate: SliverChildBuilderDelegate(
-              //         (context, index) => Container(
-              //               height: 5,
-              //               color: Colors.red,
-              //             ),
-              //         childCount: 4)),
-              // const SliverToBoxAdapter(
-              //   child: Text('Matching par Temps et Region'),
-              // ),
-              // Offstage(
-              //     offstage: Matching == 1 ? true : false,
-              //     child: const AvailabilityUsersForPhars()),
-              // SliverList(
-              //     delegate: SliverChildBuilderDelegate(
-              //         (context, index) => Container(
-              //               height: 5,
-              //               color: Colors.black,
-              //             ),
-              //         childCount: 4)),
-              // const SliverToBoxAdapter(
-              //   child: Text('Matching seulment par Region'),
-              // ),
-              // Offstage(
-              //     offstage: Matching == 1 ? true : false,
-              //     child: const AvailabilityUsersForPharsOnlyMatchWithRegion()),
-              // SliverList(
-              //     delegate: SliverChildBuilderDelegate(
-              //         (context, index) => Container(
-              //               height: 5,
-              //               color: Colors.yellow,
-              //             ),
-              //         childCount: 4)),
-              // const SliverToBoxAdapter(
-              //   child: Text('Matching seulment par Temps'),
-              // ),
-              // Offstage(
-              //     offstage: Matching == 1 ? true : false,
-              //     child:
-              //         const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement()),
-            ],
-          ),
+                // SliverList(
+                //     delegate: SliverChildBuilderDelegate(
+                //         (context, index) => Container(
+                //               height: 5,
+                //               color: Colors.red,
+                //             ),
+                //         childCount: 4)),
+                // const SliverToBoxAdapter(
+                //   child: Text('Matching par Temps et Region'),
+                // ),
+                // Offstage(
+                //     offstage: Matching == 1 ? true : false,
+                //     child: const AvailabilityUsersForPhars()),
+                // SliverList(
+                //     delegate: SliverChildBuilderDelegate(
+                //         (context, index) => Container(
+                //               height: 5,
+                //               color: Colors.black,
+                //             ),
+                //         childCount: 4)),
+                // const SliverToBoxAdapter(
+                //   child: Text('Matching seulment par Region'),
+                // ),
+                // Offstage(
+                //     offstage: Matching == 1 ? true : false,
+                //     child: const AvailabilityUsersForPharsOnlyMatchWithRegion()),
+                // SliverList(
+                //     delegate: SliverChildBuilderDelegate(
+                //         (context, index) => Container(
+                //               height: 5,
+                //               color: Colors.yellow,
+                //             ),
+                //         childCount: 4)),
+                // const SliverToBoxAdapter(
+                //   child: Text('Matching seulment par Temps'),
+                // ),
+                // Offstage(
+                //     offstage: Matching == 1 ? true : false,
+                //     child:
+                //         const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement()),
+              ],
+            );
+          }),
         )
             // child: AvailabilityUsersForPhars(),
             // AvailabilityUsersForPharsOnlyMatchWithRegion(),

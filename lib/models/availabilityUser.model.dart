@@ -295,10 +295,13 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(0)),
+      padding: const EdgeInsets.all(15),
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
           color: const Color(0xFFA3FBF2),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -307,51 +310,57 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
                 width: 400,
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    const Text(
-                      "region:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Région:",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Text(
+                          " ${availabilityUsers.region_candidate}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                          maxLines: 4,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      width: 16,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Date:",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Text(
+                          " ${availabilityUsers.date_month_year_candidate}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                          maxLines: 4,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
-                    Text(
-                      " ${availabilityUsers.region_candidate}",
-                      style: const TextStyle(color: Colors.black, fontSize: 18),
-                      maxLines: 4,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    const Text(
-                      "date:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    Text(
-                      " ${availabilityUsers.date_month_year_candidate}",
-                      style: const TextStyle(color: Colors.black, fontSize: 18),
-                      maxLines: 4,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -518,11 +527,14 @@ class AvailabilityUsersForShowCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(0)),
+      padding: EdgeInsets.all(15),
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
-          color: Color(0xFFA3FBF2),
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          color: const Color(0xFFA3FBF2),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -531,51 +543,60 @@ class AvailabilityUsersForShowCard extends StatelessWidget {
                 width: 400,
               ),
               SizedBox(height: getProportionateScreenWidth(30)),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    const Text(
-                      "region:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Région:",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          " ${availabilityUsers.region_candidate}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                          maxLines: 4,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      width: 16,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Date:",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          " ${availabilityUsers.date_month_year_candidate}",
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                          maxLines: 4,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
-                    Text(
-                      " ${availabilityUsers.region_candidate}",
-                      style: const TextStyle(color: Colors.black, fontSize: 18),
-                      maxLines: 4,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    const Text(
-                      "date:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    Text(
-                      " ${availabilityUsers.date_month_year_candidate}",
-                      style: const TextStyle(color: Colors.black, fontSize: 18),
-                      maxLines: 4,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -589,7 +610,7 @@ class AvailabilityUsersForShowCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 16,
+                      width: 5,
                     ),
                     Text(
                       " ${availabilityUsers.repeat_candidate}",
@@ -612,7 +633,7 @@ class AvailabilityUsersForShowCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 16,
+                      width: 5,
                     ),
                     Text(
                       " ${availabilityUsers.time_of_day_candidate}",

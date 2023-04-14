@@ -34,7 +34,9 @@ class HomepagePharController extends GetxController with StateMixin {
   List<DemandeToPhar> listAllDemandeToPhar = [];
   var unReadOffer = 0.obs;
   var unReadMessage = 0.obs;
-  EasyRefreshController _controller =
+  var matching = 1.obs;
+
+  final EasyRefreshController _controller =
       EasyRefreshController(controlFinishRefresh: true);
   EasyRefreshController get controller => _controller;
 
@@ -375,6 +377,10 @@ class HomepagePharController extends GetxController with StateMixin {
     }
   }
 
+  selectListePhar(int v) {
+    matching.value = v;
+  }
+
   Future ShowAllDemandeToPhar() async {
     try {
       change(null, status: RxStatus.loading());
@@ -450,18 +456,18 @@ class HomepagePharController extends GetxController with StateMixin {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('Vous avez déja demandé'),
-              content: Text(
+              title: const Text('Vous avez déja demandé'),
+              content: const Text(
                   ('Votre demande est déja  prise en compte, on vous appelle dans les meilleurs délais')),
               actions: <Widget>[
                 TextButton(
-                  child: new Text("Cancel"),
+                  child: const Text("Cancel"),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
                 TextButton(
-                  child: Text("ok"),
+                  child: const Text("ok"),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
