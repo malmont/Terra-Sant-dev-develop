@@ -100,7 +100,7 @@ class AvailabilityUsersForPhars extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return GetBuilder<HomepagePharController>(builder: (logic) {
-      final list = logic.getList1();
+      final list = logic.getList();
 
       // final listAvlUOnlyMatchWithTimeAndDepartement =
       //     logic.getListAvlUOnlyMatchWithTimeAndDepartement();
