@@ -101,15 +101,15 @@ class AvailabilityUsersForPhars extends StatelessWidget {
     SizeConfig().init(context);
     return GetBuilder<HomepagePharController>(builder: (logic) {
       final list = logic.getList();
-
-      // final listAvlUOnlyMatchWithTimeAndDepartement =
-      //     logic.getListAvlUOnlyMatchWithTimeAndDepartement();
-
       return SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
+        GestureDetector(
+          onTap: () {},
+        );
         final availabilityUsers = list[index];
 
         return AvailabilityUsersForShowCard(
+          onTapPhone: (value) {},
           availabilityUsers: list[index],
           onTapCV: () {
             Get.toNamed(Routes.showUserCVtoPhar,
@@ -118,27 +118,6 @@ class AvailabilityUsersForPhars extends StatelessWidget {
           },
         );
       }, childCount: list.length));
-
-      //debugPrint('list: ${list.length}');
-      // return EasyRefresh(
-      //   controller: logic.controller,
-      //   onRefresh: logic.onRefresh,
-      //   child: ListView.builder(
-      //       padding: EdgeInsets.symmetric(
-      //           horizontal: getProportionateScreenWidth(20)),
-      //       itemBuilder: (context, index) {
-      //         final availabilityUsers = list[index];
-
-      //         return AvailabilityUsersForShowCard(
-      //           availabilityUsers: list[index],
-      //           onTapCV: () {
-      //             Get.toNamed(Routes.showUserCVtoPhar,
-      //                 arguments: availabilityUsers); //Passing the information to the next page
-      //           },
-      //         );
-      //       },
-      //       itemCount: list.length),
-      // );
     });
   }
 }
@@ -167,27 +146,6 @@ class AvailabilityUsersForPharsOnlyMatchWithRegion extends StatelessWidget {
           },
         );
       }, childCount: listAvlUOnlyMatchWithRegion.length));
-
-      //debugPrint('list: ${list.length}');
-      // return EasyRefresh(
-      //   controller: logic.controller,
-      //   onRefresh: logic.onRefresh,
-      //   child: ListView.builder(
-      //       padding: EdgeInsets.symmetric(
-      //           horizontal: getProportionateScreenWidth(20)),
-      //       itemBuilder: (context, index) {
-      //         final availabilityUsers = listAvlUOnlyMatchWithRegion[index];
-
-      //         return AvailabilityUsersForShowCard(
-      //           availabilityUsers: listAvlUOnlyMatchWithRegion[index],
-      //           onTapCV: () {
-      //             Get.toNamed(Routes.showUserCVtoPhar,
-      //                 arguments: availabilityUsers); //Passing the information to the next page
-      //           },
-      //         );
-      //       },
-      //       itemCount: listAvlUOnlyMatchWithRegion.length),
-      // );
     });
   }
 }
@@ -218,29 +176,6 @@ class AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement
           },
         );
       }, childCount: listAvlUOnlyMatchWithTimeAndDepartement.length));
-
-      //debugPrint('list: ${list.length}');
-      // return EasyRefresh(
-      //   controller: logic.controller,
-      //   onRefresh: logic.onRefresh,
-      //   child: ListView.builder(
-      //       padding: EdgeInsets.symmetric(
-      //           horizontal: getProportionateScreenWidth(20)),
-      //       itemBuilder: (context, index) {
-      //         final availabilityUsers =
-      //             listAvlUOnlyMatchWithTimeAndDepartement[index];
-
-      //         return AvailabilityUsersForShowCard(
-      //           availabilityUsers:
-      //               listAvlUOnlyMatchWithTimeAndDepartement[index],
-      //           onTapCV: () {
-      //             Get.toNamed(Routes.showUserCVtoPhar,
-      //                 arguments: availabilityUsers); //Passing the information to the next page
-      //           },
-      //         );
-      //       },
-      //       itemCount: listAvlUOnlyMatchWithTimeAndDepartement.length),
-      // );
     });
   }
 }
