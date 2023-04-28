@@ -23,21 +23,13 @@ class HomepagePharView extends GetView<HomepagePharController> {
         ),
         body: SafeArea(
             child: EasyRefresh(
-          controller: logic.controller,
-          onRefresh: logic.onRefresh,
-          child: Obx(() {
-            return CustomScrollView(
-              slivers: [
-                if (controller.matching.value == 1)
-                  const AvailabilityUsersForPhars(),
-                if (controller.matching.value == 2)
-                  const AvailabilityUsersForPharsOnlyMatchWithRegion(),
-                if (controller.matching.value == 3)
-                  const AvailabilityUsersForPharsOnlyMatchWithTimeAndDepartement()
-              ],
-            );
-          }),
-        )),
+                controller: logic.controller,
+                onRefresh: logic.onRefresh,
+                child: const CustomScrollView(
+                  slivers: [
+                    AvailabilityUsersForPhars(),
+                  ],
+                ))),
         drawer: NavigationDrawerWidget(),
         bottomNavigationBar: ConvexAppBar(items: [
           const TabItem(

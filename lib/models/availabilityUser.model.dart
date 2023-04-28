@@ -17,6 +17,8 @@ import 'package:get/get.dart';
 import 'package:like_button/like_button.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../modules/app/homepage/homepagePhar.viewTri.dart';
+
 AvailabilityUserService availabilityUserService = Get.find();
 DemandeService demandeService = Get.find();
 HomepageController homepageController = Get.find();
@@ -100,24 +102,60 @@ class AvailabilityUsersForPhars extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return GetBuilder<HomepagePharController>(builder: (logic) {
-      final list = logic.getList();
+      final list = logic.getListRegion();
       return SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => HomepagePharViewTri(list[index])),
+            );
+            print("push");
+          },
         );
-        final availabilityUsers = list[index];
+
+        return InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => HomepagePharViewTri(list[index])),
+            );
+          },
+          child: AvailabilityRegionsForShowCard(
+            availabilityUsers: list[index],
+          ),
+        );
+      }, childCount: list.length));
+    });
+  }
+}
+
+class AvailabilityUsersForPharm extends StatelessWidget {
+  const AvailabilityUsersForPharm({Key? key, required this.region})
+      : super(key: key);
+  final String region;
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return GetBuilder<HomepagePharController>(builder: (logic) {
+      final listAvlUOnlyMatchWithRegion = logic.getList(region);
+
+      return SliverList(
+          delegate: SliverChildBuilderDelegate((context, index) {
+        final availabilityUsers = listAvlUOnlyMatchWithRegion[index];
 
         return AvailabilityUsersForShowCard(
-          onTapPhone: (value) {},
-          availabilityUsers: list[index],
+          availabilityUsers: listAvlUOnlyMatchWithRegion[index],
           onTapCV: () {
             Get.toNamed(Routes.showUserCVtoPhar,
                 arguments:
                     availabilityUsers); //Passing the information to the next page
           },
         );
-      }, childCount: list.length));
+      }, childCount: listAvlUOnlyMatchWithRegion.length));
     });
   }
 }
@@ -435,6 +473,72 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AvailabilityRegionsForShowCard extends StatelessWidget {
+  const AvailabilityRegionsForShowCard({
+    Key? key,
+    required this.availabilityUsers,
+  }) : super(key: key);
+
+  final String availabilityUsers;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(15),
+      child: SizedBox(
+        // width: getProportionateScreenWidth(width),
+        child: Card(
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          color: const Color(0xFFA3FBF2),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(
+                width: 400,
+              ),
+              SizedBox(height: getProportionateScreenWidth(30)),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Région:",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          availabilityUsers,
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 18),
+                          maxLines: 4,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                ],
               ),
             ],
           ),

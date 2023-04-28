@@ -42,23 +42,14 @@ class HomepagePharController extends GetxController with StateMixin {
 
   Timer? _timer;
 
-  List<AvailabilityUser> getList() {
+  List<AvailabilityUser> getList(String region) {
     //get all avlU which correspond to one of the avlPs of this pharmacien match with date and region
 
     List<AvailabilityUser> newList = <AvailabilityUser>[];
     newList = _list1
-        .where((c) => c.region_candidate!.substring(0, 2) == "75")
+        .where((c) => c.region_candidate!.substring(0, 2) == region)
         .toList();
-    // for (final avlU in _list1) {
-    //   if (list2
-    //       .where((element) =>
-    //           element.date_month_year_phar == avlU.date_month_year_candidate &&
-    //           element.ph_region == avlU.region_candidate)
-    //       .isNotEmpty) {
-    //     newList.add(avlU);
-    //   }
-    // }
-    var test = getListRegion();
+
     return newList;
   }
 

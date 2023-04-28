@@ -1,4 +1,3 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/availabilityUser.model.dart';
@@ -8,8 +7,8 @@ import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
 
 class HomepagePharViewTri extends GetView<HomepagePharController> {
-  const HomepagePharViewTri({Key? key}) : super(key: key);
-
+  const HomepagePharViewTri(this.region, {Key? key}) : super(key: key);
+  final String region;
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -106,7 +105,9 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
             return CustomScrollView(
               slivers: [
                 if (controller.matching.value == 1)
-                  const AvailabilityUsersForPhars(),
+                  AvailabilityUsersForPharm(
+                    region: region,
+                  ),
                 if (controller.matching.value == 2)
                   const AvailabilityUsersForPharsOnlyMatchWithRegion(),
                 if (controller.matching.value == 3)
@@ -115,7 +116,6 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
             );
           }),
         )),
-        drawer: NavigationDrawerWidget(),
       );
     });
   }
