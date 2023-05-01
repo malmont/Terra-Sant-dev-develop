@@ -94,11 +94,11 @@ class HomepageController extends GetxController with StateMixin {
     } else if (signInController.user.user_type == "Pharmacien") {
       type = "Pharmacien,ne";
     }
+    List<AvailabilityPhar> newList1 = <AvailabilityPhar>[];
     List<String> newList = [];
-    for (var listRegion in list1) {
-      if (list1.where((c) => c.status_needed == type).isNotEmpty) {
-        newList.add(listRegion.ph_region!.substring(0, 2));
-      }
+    newList1 = list1.where((c) => c.status_needed == type).toList();
+    for (var listRegion in newList1) {
+      newList.add(listRegion.ph_region!.substring(0, 2));
     }
 
     return newList.toSet().toList();

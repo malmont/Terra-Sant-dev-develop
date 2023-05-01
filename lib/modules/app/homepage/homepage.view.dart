@@ -16,17 +16,14 @@ class HomepageView extends GetView<HomepageController> {
 
     return GetBuilder<HomepageController>(builder: (logic) {
       return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(236.0),
-          child: AppBar(
-            title: const Text("Pharmacie Disponible"),
-            flexibleSpace: ListView(children: const [
-              SizedBox(
-                height: 30,
-              ),
-            ]),
-            //centerTitle: true,
-          ),
+        appBar: AppBar(
+          title: const Text("Pharmacie Disponible"),
+          flexibleSpace: ListView(children: const [
+            SizedBox(
+              height: 30,
+            ),
+          ]),
+          //centerTitle: true,
         ),
         body: SafeArea(
           child: EasyRefresh(
