@@ -112,7 +112,7 @@ class EditAVLUController extends GetxController with StateMixin<List<dynamic>> {
         ) {
       errorMessage.value = "Champs obligatoire";
     } else {
-      availabilityUsers.competence = competence.text;
+      availabilityUsers.competence = selectedForStatus.value;
       availabilityUsers.user_id =
           homepageController.signInController.user.userId;
       availabilityUsers.repeat_candidate = selectedRepeate.value;

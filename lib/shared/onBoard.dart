@@ -21,8 +21,8 @@ class OnBoard extends StatelessWidget {
     return Obx(() {
       return _authManager.activUser.value
           ? _authManager.typeHome.value
-              ? HomepagePharView()
-              : HomepageView()
+              ? const HomepagePharView()
+              : const HomepageView()
           : AuthView();
     });
   }

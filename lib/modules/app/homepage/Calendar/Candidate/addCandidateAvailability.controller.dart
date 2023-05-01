@@ -134,7 +134,7 @@ class AddCandidateAvailabilityController extends GetxController
     } else {
       // final phar = homepageController.listMyPhar
       //     .firstWhere((element) => element.phName == selected.value);
-      availabilityUser.competence = competence.text;
+      availabilityUser.competence = selectedForStatus.value;
       availabilityUser.user_id =
           homepageController.signInController.user.userId;
       availabilityUser.repeat_candidate = selectedRepeate.value;

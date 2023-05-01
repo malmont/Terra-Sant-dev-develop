@@ -30,7 +30,7 @@ class HomepageController extends GetxController with StateMixin {
   List<AvailabilityUser> list2 = []; //all avlU of this user
   List<Offer> listAllOffer = [];
   List<Demande> listAllDemande = [];
-  var matching = 1.obs;
+  var matching = "13".obs;
   var unReadMessage = 0.obs;
   var unReadOffer = 0.obs;
 
@@ -53,6 +53,55 @@ class HomepageController extends GetxController with StateMixin {
       }
     }
     return newList;
+  }
+
+  List<AvailabilityPhar> getList(String region, String date) {
+    //get all avlU which correspond to one of the avlPs of this pharmacien match with date and region
+
+    List<AvailabilityPhar> newList = <AvailabilityPhar>[];
+    var type = "";
+    if (signInController.user.user_type == "etudiant") {
+      type = "étudiant,e";
+    } else if (signInController.user.user_type == "candidat") {
+      type = "étudiant,e";
+    } else if (signInController.user.user_type == "recruteur") {
+      type = "Préparateur,trice";
+    } else if (signInController.user.user_type == "Pharmacien") {
+      type = "Pharmacien,ne";
+    }
+    newList = list1
+        .where((c) =>
+            c.ph_region!.substring(0, 2) == region && c.status_needed == type)
+        .toList();
+    if (date != "13") {
+      newList = newList
+          .where((c) => c.date_month_year_phar!.substring(5, 7) == date)
+          .toList();
+    }
+
+    return newList;
+  }
+
+  List<String> getListRegion() {
+    //get all avlU which correspond to one of the avlPs of this pharmacien match with date and region
+    var type = "";
+    if (signInController.user.user_type == "etudiant") {
+      type = "étudiant,e";
+    } else if (signInController.user.user_type == "candidat") {
+      type = "étudiant,e";
+    } else if (signInController.user.user_type == "recruteur") {
+      type = "Préparateur,trice";
+    } else if (signInController.user.user_type == "Pharmacien") {
+      type = "Pharmacien,ne";
+    }
+    List<String> newList = [];
+    for (var listRegion in list1) {
+      if (list1.where((c) => c.status_needed == type).isNotEmpty) {
+        newList.add(listRegion.ph_region!.substring(0, 2));
+      }
+    }
+
+    return newList.toSet().toList();
   }
 
   List<AvailabilityPhar> getListAvlPOnlyMatchWithRegion() {
@@ -308,7 +357,7 @@ class HomepageController extends GetxController with StateMixin {
     }
   }
 
-  selectListePhar(int v) {
+  selectListePhar(String v) {
     matching.value = v;
   }
 
@@ -467,151 +516,3 @@ class HomepageController extends GetxController with StateMixin {
             ));
   }
 }
-
-// class IconBtnWithCounter extends StatelessWidget {
-//   const IconBtnWithCounter({
-//     Key? key,
-//     required this.svgSrc,
-//     required this.num0fItems,
-//     required this.press,
-//   }) : super(key: key);
-
-//   final String svgSrc;
-//   final int num0fItems;
-//   final GestureTapCallback press;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: press,
-//       borderRadius: BorderRadius.circular(50),
-//       child: Stack(
-//         children: [
-//           Container(
-//             padding: EdgeInsets.all(getProportionateScreenWidth(12)),
-//             height: getProportionateScreenWidth(46),
-//             width: getProportionateScreenWidth(46),
-//             decoration: BoxDecoration(
-//                 color: const Color(0).withOpacity(0.2), shape: BoxShape.circle),
-//             child: SvgPicture.asset(svgSrc),
-//           ),
-//           if (num0fItems != 0)
-//             Positioned(
-//               right: 0,
-//               child: Container(
-//                 height: getProportionateScreenWidth(16),
-//                 width: getProportionateScreenHeight(16),
-//                 decoration: BoxDecoration(
-//                   color: const Color(0xFFFF4848),
-//                   shape: BoxShape.circle,
-//                   border: Border.all(width: 1.5, color: Colors.white),
-//                 ),
-//                 child: Center(
-//                     child: Text(
-//                   "$num0fItems",
-//                   style: TextStyle(
-//                       fontSize: getProportionateScreenWidth(10),
-//                       height: 1,
-//                       color: Colors.white,
-//                       fontWeight: FontWeight.w600),
-//                 )),
-//               ),
-//             )
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class SearchField extends StatelessWidget {
-//   const SearchField({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: SizeConfig.screenWidth * 0.6, //60% of our width
-//       decoration: BoxDecoration(
-//           color: const Color(0x00000000).withOpacity(0.15),
-//           borderRadius: BorderRadius.circular(15)),
-//       child: TextField(
-//         onChanged: (value) {
-//           //search value
-//         },
-//         decoration: InputDecoration(
-//           enabledBorder: InputBorder.none,
-//           focusedBorder: InputBorder.none,
-//           hintText: "Search ...",
-//           prefixIcon: const Icon(Icons.search),
-//           contentPadding: EdgeInsets.symmetric(
-//             horizontal: getProportionateScreenWidth(20),
-//             vertical: getProportionateScreenWidth(12),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class HomeHeader extends StatelessWidget {
-//   const HomeHeader({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding:
-//           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(50)),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: const [
-//           SearchField(),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class NewsBanner extends StatelessWidget {
-//   const NewsBanner({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         margin:
-//             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-//         padding: EdgeInsets.symmetric(
-//             horizontal: getProportionateScreenWidth(20),
-//             vertical: getProportionateScreenWidth(15)),
-//         width: double.infinity,
-//         // height: 90,
-//         decoration: BoxDecoration(
-//             color: const Color.fromARGB(255, 58, 183, 187),
-//             borderRadius: BorderRadius.circular(20)),
-//         child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-//           const Text.rich(TextSpan(
-//               text: "timeslot.date of pharmacy\ntype need\nadress\n",
-//               style: TextStyle(color: Colors.white),
-//               children: [
-//                 TextSpan(
-//                   text: "name of pharmacy",
-//                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-//                 )
-//               ])),
-//           LikeButton(),
-//           LikeButton(
-//             likeBuilder: (bool isLiked) {
-//               return Icon(
-//                 Icons.hail,
-//                 color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-//                 size: 35,
-//               );
-//             },
-//           ),
-//         ]));
-//   }
-// }

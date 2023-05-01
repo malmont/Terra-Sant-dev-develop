@@ -85,7 +85,7 @@ class _AddCandidateAvailabilityViewState
                                 }).toList(),
                               )),
                           const Text(
-                            "Choissiez votre habitude:",
+                            "Habitude:",
                           ),
                           Obx(() => DropdownButton(
                                 iconSize: 24,
@@ -107,7 +107,7 @@ class _AddCandidateAvailabilityViewState
                             height: 20,
                           ),
                           const Text(
-                            "Choissiez la date de début",
+                            "Date de début",
                             style: TextStyle(color: Colors.black),
                           ),
                           TextButton(
@@ -127,7 +127,7 @@ class _AddCandidateAvailabilityViewState
                             child: const Text('Calender'),
                           ),
                           const Text(
-                            "Choissiez la période de la journée:",
+                            "Période de la journée:",
                           ),
                           Obx(() => DropdownButton(
                                 iconSize: 24,

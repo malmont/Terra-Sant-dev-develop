@@ -12,6 +12,8 @@ import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
 import 'package:like_button/like_button.dart';
 
+import '../modules/app/homepage/homepage.Triview.dart';
+
 AvailabilityPharService availabilityPharService = Get.find();
 HomepagePharController homepagePharController = Get.find();
 HomepageController homepageController = Get.find();
@@ -106,54 +108,39 @@ class AvailabilityPharsForUsers extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return GetBuilder<HomepageController>(builder: (logic) {
-      final list = logic.getList1();
+      final list = logic.getListRegion();
 
       return SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
         final availabilityPhars = list[index];
 
-        return AvailabilityPharsForShowCard(
-          availabilityPhars: list[index],
-          // onTapCV: () {
-          //   Get.toNamed(Routes.showUserCVtoPhar,
-          //       arguments: availabilityUsers); //Passing the information to the next page
-          // },
-          onTapPhone: (phone) {
-            debugPrint('phone: $phone');
+        return InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => HomepageTriView(list[index])),
+            );
           },
+          child: AvailabilityRegionsForShowCard(
+            availabilityPhars: list[index],
+          ),
         );
       }, childCount: list.length));
-
-      // return EasyRefresh(
-      //   controller: logic.controller,
-      //   onRefresh: logic.onRefresh,
-      //   child: ListView.builder(
-      //       padding: EdgeInsets.symmetric(
-      //           horizontal: getProportionateScreenWidth(20)),
-      //       itemBuilder: (context, index) {
-      //         final availabilityPhars = list[index];
-      //         return AvailabilityPharsForShowCard(
-      //           availabilityPhars: availabilityPhars,
-      //           onTapPhone: (phone) {
-      //             debugPrint('phone: $phone');
-      //           },
-      //         );
-      //       },
-      //       itemCount: list.length),
-      // );
     });
   }
 }
 
 class AvailabilityPharsForUsersOnlyMatchWithRegion extends StatelessWidget {
-  const AvailabilityPharsForUsersOnlyMatchWithRegion({Key? key})
+  const AvailabilityPharsForUsersOnlyMatchWithRegion({Key? key, required this.region, required this.date})
       : super(key: key);
-
+  final String region;
+  final String date;
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return GetBuilder<HomepageController>(builder: (logic) {
-      final list = logic.getListAvlPOnlyMatchWithRegion();
+      final list = logic.getList(region,date);
 
       return SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
@@ -166,23 +153,6 @@ class AvailabilityPharsForUsersOnlyMatchWithRegion extends StatelessWidget {
           },
         );
       }, childCount: list.length));
-      // return EasyRefresh(
-      //   controller: logic.controller,
-      //   onRefresh: logic.onRefresh,
-      //   child: ListView.builder(
-      //       padding: EdgeInsets.symmetric(
-      //           horizontal: getProportionateScreenWidth(20)),
-      //       itemBuilder: (context, index) {
-      //         final availabilityPhars = list[index];
-      //         return AvailabilityPharsForShowCard(
-      //           availabilityPhars: availabilityPhars,
-      //           onTapPhone: (phone) {
-      //             debugPrint('phone: $phone');
-      //           },
-      //         );
-      //       },
-      //       itemCount: list.length),
-      // );
     });
   }
 }
@@ -257,6 +227,72 @@ class AvailabilityPharsForPhars extends StatelessWidget {
             itemCount: list.length),
       );
     });
+  }
+}
+
+class AvailabilityRegionsForShowCard extends StatelessWidget {
+  const AvailabilityRegionsForShowCard({
+    Key? key,
+    required this.availabilityPhars,
+  }) : super(key: key);
+
+  final String availabilityPhars;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(15),
+      child: SizedBox(
+        // width: getProportionateScreenWidth(width),
+        child: Card(
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          color: const Color(0xFFA3FBF2),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(
+                width: 400,
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Région:",
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          availabilityPhars,
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 20),
+                          maxLines: 4,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

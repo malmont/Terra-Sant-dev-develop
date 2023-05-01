@@ -34,7 +34,8 @@ class HomepagePharController extends GetxController with StateMixin {
   List<DemandeToPhar> listAllDemandeToPhar = [];
   var unReadOffer = 0.obs;
   var unReadMessage = 0.obs;
-  var matching = 1.obs;
+  var matching = "13".obs;
+  var selectCol = "13".obs;
 
   final EasyRefreshController _controller =
       EasyRefreshController(controlFinishRefresh: true);
@@ -42,13 +43,22 @@ class HomepagePharController extends GetxController with StateMixin {
 
   Timer? _timer;
 
-  List<AvailabilityUser> getList(String region) {
+  List<AvailabilityUser> getList(String region, String date, String col) {
     //get all avlU which correspond to one of the avlPs of this pharmacien match with date and region
 
     List<AvailabilityUser> newList = <AvailabilityUser>[];
+
     newList = _list1
         .where((c) => c.region_candidate!.substring(0, 2) == region)
         .toList();
+    if (date != "13") {
+      newList = newList
+          .where((c) => c.date_month_year_candidate!.substring(5, 7) == date)
+          .toList();
+    }
+    if (col != "13") {
+      newList = newList.where((c) => c.competence == col).toList();
+    }
 
     return newList;
   }
@@ -399,8 +409,12 @@ class HomepagePharController extends GetxController with StateMixin {
     }
   }
 
-  selectListePhar(int v) {
+  selectListePhar(String v) {
     matching.value = v;
+  }
+
+  selectListePharCol(String v) {
+    selectCol.value = v;
   }
 
   Future ShowAllDemandeToPhar() async {
@@ -553,419 +567,3 @@ class IconBtnWithCounter extends StatelessWidget {
     );
   }
 }
-  
-// class SearchField extends StatelessWidget {
-//   const SearchField({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: SizeConfig.screenWidth * 0.6, //60% of our width
-//       decoration: BoxDecoration(
-//           color: const Color(0x00000000).withOpacity(0.15),
-//           borderRadius: BorderRadius.circular(15)),
-//       child: TextField(
-//         onChanged: (value) {
-//           //search value
-//         },
-//         decoration: InputDecoration(
-//           enabledBorder: InputBorder.none,
-//           focusedBorder: InputBorder.none,
-//           hintText: "Search ...",
-//           prefixIcon: const Icon(Icons.search),
-//           contentPadding: EdgeInsets.symmetric(
-//             horizontal: getProportionateScreenWidth(20),
-//             vertical: getProportionateScreenWidth(12),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class HomeHeader extends StatelessWidget {
-//   const HomeHeader({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding:
-//           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(50)),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: const [
-//           SearchField(),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class NewsBanner extends StatelessWidget {
-//   const NewsBanner({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         margin:
-//             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-//         padding: EdgeInsets.symmetric(
-//             horizontal: getProportionateScreenWidth(20),
-//             vertical: getProportionateScreenWidth(15)),
-//         width: double.infinity,
-//         // height: 90,
-//         decoration: BoxDecoration(
-//             color: const Color.fromARGB(255, 58, 183, 187),
-//             borderRadius: BorderRadius.circular(20)),
-//         child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-//           const Text.rich(TextSpan(
-//               text: "\n",
-//               style: TextStyle(color: Colors.white),
-//               children: [
-//                 TextSpan(
-//                   text: "timeslot.date ",
-//                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-//                 )
-//               ])),
-//           // FavoriteButton(
-//           //   iconSize: getProportionateScreenWidth(20),
-//           //   valueChanged: (_isFavorite) {
-//           //     print('Is Favorite $_isFavorite)');
-//           //     //navigateToFavorite();
-//           //   },
-//           // ),
-
-//           LikeButton(
-//             countPostion: CountPostion.left,
-//             likeBuilder: (bool isLiked) {
-//               return Icon(
-//                 Icons.phone_forwarded,
-//                 color: isLiked ? Colors.deepPurpleAccent : Colors.grey,
-//                 size: 35,
-//               );
-//             },
-//           )
-//         ]));
-
-// class Categories extends StatelessWidget {
-//   const Categories({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     List<Map<String, dynamic>> categories = [
-//       {"icon": "assets/icons/homme.svg", "text": "falsh deal"},
-//       {"icon": "assets/icons/homme.svg", "text": "falsh deal"},
-//       {"icon": "assets/icons/homme.svg", "text": "falsh deal"},
-//       {"icon": "assets/icons/homme.svg", "text": "falsh deal"},
-//       {"icon": "assets/icons/homme.svg", "text": "falsh deal"},
-//     ];
-//     return Padding(
-//       padding:
-//           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           ...List.generate(
-//               categories.length,
-//               (index) => CategoriesCard(
-//                   icon: categories[index]["icon"],
-//                   text: categories[index]["text"],
-//                   press: () {}))
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class CategoriesCard extends StatelessWidget {
-//   const CategoriesCard({
-//     Key? key,
-//     required this.icon,
-//     required this.text,
-//     required this.press,
-//   }) : super(key: key);
-
-//   final String icon, text;
-//   final GestureTapCallback press;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: press,
-//       child: SizedBox(
-//         width: getProportionateScreenWidth(55),
-//         child: Column(
-//           children: [
-//             AspectRatio(
-//               aspectRatio: 1,
-//               child: Container(
-//                 padding: EdgeInsets.all(getProportionateScreenWidth(15)),
-//                 decoration: BoxDecoration(
-//                   color: const Color.fromARGB(255, 41, 193, 213),
-//                   borderRadius: BorderRadius.circular(10),
-//                 ),
-//                 child: SvgPicture.asset(icon),
-//               ),
-//             ),
-//             const SizedBox(height: 5),
-//             Text(
-//               text,
-//               textAlign: TextAlign.center,
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class SectionTitle extends StatelessWidget {
-//   const SectionTitle({
-//     Key? key,
-//     required this.text,
-//     required this.press,
-//   }) : super(key: key);
-
-//   final String text;
-//   final GestureTapCallback press;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding:
-//           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         children: [
-//           Text(
-//             text,
-//             style: TextStyle(
-//               fontSize: getProportionateScreenWidth(18),
-//               color: const Color.fromARGB(255, 26, 148, 242),
-//             ),
-//           ),
-//           GestureDetector(
-//             onTap: press,
-//             child: const Text("see More"),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class SpecialOfferCard extends StatelessWidget {
-//   const SpecialOfferCard({
-//     Key? key,
-//     required this.category,
-//     required this.image,
-//     required this.numOfBrands,
-//     required this.press,
-//   }) : super(key: key);
-
-//   final String category, image;
-//   final int numOfBrands;
-//   final GestureTapCallback press;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
-//       child: SizedBox(
-//         width: getProportionateScreenWidth(242),
-//         height: getProportionateScreenWidth(100),
-//         child: ClipRRect(
-//           borderRadius: BorderRadius.circular(20),
-//           child: Stack(
-//             children: [
-//               Image.asset(
-//                 image,
-//                 fit: BoxFit.cover,
-//               ),
-//               Container(
-//                 decoration: BoxDecoration(
-//                     gradient: LinearGradient(
-//                         begin: Alignment.topCenter,
-//                         end: Alignment.bottomCenter,
-//                         colors: [
-//                       const Color(0xFF343434).withOpacity(0.4),
-//                       const Color(0xFF343434).withOpacity(0.15)
-//                     ])),
-//               ),
-//               Padding(
-//                 padding: EdgeInsets.symmetric(
-//                     horizontal: getProportionateScreenWidth(15),
-//                     vertical: getProportionateScreenWidth(10)),
-//                 child: Text.rich(
-//                   TextSpan(
-//                       style: const TextStyle(color: Colors.white),
-//                       children: [
-//                         TextSpan(
-//                             text: category,
-//                             style: TextStyle(
-//                               fontSize: getProportionateScreenWidth(18),
-//                               fontWeight: FontWeight.bold,
-//                             )),
-//                         TextSpan(text: "$numOfBrands Brands"),
-//                       ]),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class SpecialOffers extends StatelessWidget {
-//   const SpecialOffers({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         SectionTitle(
-//           text: "Terra Terra Terra",
-//           press: () {},
-//         ),
-//         SizedBox(height: getProportionateScreenWidth(20)),
-//         SingleChildScrollView(
-//           scrollDirection: Axis.horizontal,
-//           child: Row(
-//             children: [
-//               SpecialOfferCard(
-//                 image: "assets/images/logo.png",
-//                 category: "Selma Xiangyu Xin\n ",
-//                 numOfBrands: 3,
-//                 press: () {},
-//               ),
-//               SpecialOfferCard(
-//                 image: "assets/images/logo.png",
-//                 category: "Selma Xiangyu Xin\n ",
-//                 numOfBrands: 3,
-//                 press: () {},
-//               ),
-//               SizedBox(
-//                 width: getProportionateScreenWidth(20),
-//               )
-//             ],
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }
-
-// class ProductCard extends StatelessWidget {
-//   const ProductCard({
-//     Key? key,
-//     this.width = 140,
-//     this.aspectRetio = 1.02,
-//     required this.product,
-//   }) : super(key: key);
-
-//   final double width, aspectRetio;
-//   final Product product;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
-//       child: SizedBox(
-//         width: getProportionateScreenWidth(width),
-//         child: Column(
-//           children: [
-//             AspectRatio(
-//               aspectRatio: aspectRetio,
-//               child: Container(
-//                 padding: EdgeInsets.all(getProportionateScreenWidth(20)),
-//                 decoration: BoxDecoration(
-//                   color: Colors.black.withOpacity(0.1),
-//                   borderRadius: BorderRadius.circular(15),
-//                 ),
-//                 child: Image.asset(product.images[0]),
-//               ),
-//             ),
-//             const SizedBox(height: 5),
-//             Text(
-//               product.title,
-//               style: const TextStyle(color: Colors.black),
-//               maxLines: 2,
-//             ),
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Text(
-//                   product.price,
-//                   style: const TextStyle(color: Colors.black),
-//                 ),
-//                 InkWell(
-//                   borderRadius: BorderRadius.circular(30),
-//                   child: Container(
-//                       padding: EdgeInsets.all(getProportionateScreenWidth(8)),
-//                       width: getProportionateScreenWidth(35),
-//                       height: getProportionateScreenWidth(35),
-//                       decoration: BoxDecoration(
-//                         color: product.isFavourite
-//                             ? Colors.black.withOpacity(0.15)
-//                             : Colors.black.withOpacity(0.1),
-//                         shape: BoxShape.circle,
-//                       ),
-//                       child: FavoriteButton(
-//                         iconSize: getProportionateScreenWidth(8),
-//                         valueChanged: (_isFavorite) {
-//                           print('Is Favorite $_isFavorite)');
-//                           //navigateToFavorite();
-//                         },
-//                       )),
-//                 )
-//               ],
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class PopularProducts extends StatelessWidget {
-//   const PopularProducts({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         SectionTitle(text: "new information", press: () {}),
-//         SizedBox(height: getProportionateScreenWidth(20)),
-//         SingleChildScrollView(
-//           scrollDirection: Axis.horizontal,
-//           child: Row(children: [
-//             ...List.generate(
-//               demoProducts.length,
-//               (index) => ProductCard(
-//                 product: demoProducts[index],
-//               ),
-//             ),
-//             SizedBox(
-//               width: getProportionateScreenWidth(20),
-//             )
-//           ]),
-//         ),
-//       ],
-//     );
-//   }
-// }
-
-
