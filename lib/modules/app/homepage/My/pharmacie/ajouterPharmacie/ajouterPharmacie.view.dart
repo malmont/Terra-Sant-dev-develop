@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/homepage/My/pharmacie/ajouterPharmacie/ajouterPharmacie.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
 import 'package:flutter_application_1/shared/widgets/button/rounded_button.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 
 class AjouterPharmacieView extends StatefulWidget {
-  AjouterPharmacieView({Key? key}) : super(key: key);
+  const AjouterPharmacieView({Key? key}) : super(key: key);
 
   @override
   State<AjouterPharmacieView> createState() => AjouterPharmacieViewState();
@@ -75,7 +74,7 @@ class AjouterPharmacieViewState extends State<AjouterPharmacieView> {
                         controller: controller.tel,
                         decoration: const InputDecoration(hintText: 'Tel:'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       //   child: Expanded(

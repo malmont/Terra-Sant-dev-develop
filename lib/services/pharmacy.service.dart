@@ -1,5 +1,3 @@
-import 'package:flutter_application_1/models/pharmacy.model.dart';
-import 'package:flutter_application_1/models/user.model.dart';
 import 'package:flutter_application_1/repositories/pharmacy.repository.dart';
 import 'package:get/get.dart';
 

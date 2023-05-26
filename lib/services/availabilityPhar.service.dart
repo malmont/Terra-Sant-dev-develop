@@ -1,5 +1,4 @@
 import 'package:flutter_application_1/repositories/availabilityPhar.repository.dart';
-import 'package:flutter_application_1/repositories/availabilityUser.repository.dart';
 import 'package:get/get.dart';
 
 class AvailabilityPharService {

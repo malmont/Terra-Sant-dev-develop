@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepage.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
 import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
 import 'package:like_button/like_button.dart';
@@ -101,7 +100,7 @@ class DemandeForUsers extends StatelessWidget {
 }
 
 class DemandeForUserCard extends StatelessWidget {
-  DemandeForUserCard({
+  const DemandeForUserCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -341,9 +340,9 @@ class DemandeForUserCard extends StatelessWidget {
                               context: context,
                               builder: (context) => AlertDialog(
                                     title: const Text('Refuser et supprimé？？？'),
-                                    content: Column(
+                                    content:  Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        children: const [
+                                        children: [
                                           Text(
                                             "Refuser",
                                           ),

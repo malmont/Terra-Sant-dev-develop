@@ -108,12 +108,10 @@ class SignInController extends GetxController with StateMixin {
 
   Future<bool> _saveUser(User user) async {
     _localData = await SharedPreferences.getInstance();
-    if (user != null) {
-      Map<String, dynamic> mapUser = user.toJson();
-      String _jsonUser = jsonEncode(mapUser);
-      activUser.value = true;
-      return _localData.setString(keyAcces, _jsonUser);
-    }
+    Map<String, dynamic> mapUser = user.toJson();
+    String _jsonUser = jsonEncode(mapUser);
+    activUser.value = true;
+    return _localData.setString(keyAcces, _jsonUser);
 
     return false;
   }
@@ -130,7 +128,7 @@ class SignInController extends GetxController with StateMixin {
     final String? _tempUser = _localData1.getString(keyAcces);
     if (_tempUser != null) {
       if (_tempUser != " ") {
-        _userMap = jsonDecode(_tempUser!);
+        _userMap = jsonDecode(_tempUser);
         user = User.fromJson(_userMap);
         if (user != null) {
           activUser.value = true;

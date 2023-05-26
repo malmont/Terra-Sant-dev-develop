@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';
-import 'package:flutter_application_1/shared/widgets/methods/methods.shared.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';

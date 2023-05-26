@@ -18,6 +18,7 @@ class ModifiyProfileController extends GetxController {
     print('Second text field: ${textEditingController.text}');
   }
 
+  @override
   void onInit() {
     super.onInit();
     textEditingController.addListener(_printLatestValue);

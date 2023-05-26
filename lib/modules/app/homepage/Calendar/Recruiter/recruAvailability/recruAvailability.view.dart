@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/availabilityPhar.model.dart';
-import 'package:flutter_application_1/models/pharmacy.model.dart';
-import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/candidateAvailability.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/recruAvailability/recruAvailability.controller.dart';
-import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
-import 'package:like_button/like_button.dart';
 
 class RecruAvailabilityView extends GetView<RecruAvailabilityController> {
   const RecruAvailabilityView({Key? key}) : super(key: key);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/duty.model.dart';
 import 'package:flutter_application_1/models/duty/duty_now.model.dart';
 import 'package:flutter_application_1/modules/app/auth/SignIn/signin.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_candidate/Details/Now/detail_now_candidate.controller.dart';

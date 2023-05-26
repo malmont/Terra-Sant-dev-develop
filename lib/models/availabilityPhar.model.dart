@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/availabilityUser.model.dart';
-import 'package:flutter_application_1/models/pharmacy.model.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepage.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';
@@ -241,7 +240,7 @@ class AvailabilityRegionsForShowCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
@@ -766,7 +765,7 @@ class _ADialogState extends State<ADialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Confirmation'),
+      title: const Text('Confirmation'),
       content: Column(mainAxisSize: MainAxisSize.min, children: [
         const Text(
           "Choisir entre mes besoins:",
@@ -792,13 +791,13 @@ class _ADialogState extends State<ADialog> {
       ]),
       actions: <Widget>[
         TextButton(
-          child: new Text("Cancel"),
+          child: const Text("Cancel"),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         TextButton(
-          child: Text("Oui"),
+          child: const Text("Oui"),
           onPressed: () {
             Navigator.of(context).pop();
             widget.onSend?.call(_value);
@@ -810,7 +809,7 @@ class _ADialogState extends State<ADialog> {
 }
 
 class AvailabilityPharsForEditCard extends StatelessWidget {
-  AvailabilityPharsForEditCard({
+  const AvailabilityPharsForEditCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -831,7 +830,7 @@ class AvailabilityPharsForEditCard extends StatelessWidget {
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
-          color: Color(0xFFA3FBF2),
+          color: const Color(0xFFA3FBF2),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -941,21 +940,21 @@ class AvailabilityPharsForEditCard extends StatelessWidget {
                         showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
-                                  title: Text('Confirmation'),
-                                  content: Column(
+                                  title: const Text('Confirmation'),
+                                  content:  Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(('Vous voulez supprimer'))
                                       ]),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: new Text("Cancel"),
+                                      child: const Text("Cancel"),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
                                     ),
                                     TextButton(
-                                      child: Text("Oui"),
+                                      child: const Text("Oui"),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                         availabilityPharService.deleteAvl(
@@ -965,19 +964,19 @@ class AvailabilityPharsForEditCard extends StatelessWidget {
                                         showDialog(
                                             context: context,
                                             builder: (context) => AlertDialog(
-                                                  title: Text('Confirmation'),
+                                                  title: const Text('Confirmation'),
                                                   content:
-                                                      Text(('Déja Supprimé')),
+                                                      const Text(('Déja Supprimé')),
                                                   actions: <Widget>[
                                                     TextButton(
-                                                      child: new Text("Cancel"),
+                                                      child: const Text("Cancel"),
                                                       onPressed: () {
                                                         Navigator.of(context)
                                                             .pop();
                                                       },
                                                     ),
                                                     TextButton(
-                                                      child: Text("ok"),
+                                                      child: const Text("ok"),
                                                       onPressed: () {
                                                         Navigator.of(context)
                                                             .pop();

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Details/Future/ajouteMission/ajoute_mission.controller.dart';
 import 'package:flutter_application_1/shared/widgets/button/rounded_button.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 
 class AjouterMissionView extends StatefulWidget {

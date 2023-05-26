@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/user.model.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';
 import 'package:flutter_application_1/shared/utils/calendar_basic.util.dart';
 import 'package:flutter_application_1/shared/widgets/methods/methods.shared.dart';

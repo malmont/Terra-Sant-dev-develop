@@ -1,12 +1,8 @@
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:adaptive_dialog/adaptive_dialog.dart';
-import 'package:dio/dio.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/availabilityPhar.model.dart';
-import 'package:flutter_application_1/models/user.model.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepage.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';
@@ -15,7 +11,6 @@ import 'package:flutter_application_1/services/demande.service.dart';
 import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
 import 'package:like_button/like_button.dart';
-import 'package:path_provider/path_provider.dart';
 
 import '../modules/app/homepage/homepagePhar.viewTri.dart';
 
@@ -408,9 +403,9 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
                             context: context,
                             builder: (context) => AlertDialog(
                                   title: const Text('Confirmation'),
-                                  content: Column(
+                                  content:  Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      children: const [
+                                      children: [
                                         Text(('Vous voulez le supprimer?'))
                                       ]),
                                   actions: <Widget>[
@@ -490,7 +485,7 @@ class AvailabilityRegionsForShowCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
@@ -563,7 +558,7 @@ class AvailabilityUsersForShowCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
@@ -819,13 +814,13 @@ class _ADialogState extends State<ADialog> {
       ]),
       actions: <Widget>[
         TextButton(
-          child: new Text("Cancel"),
+          child: const Text("Cancel"),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         TextButton(
-          child: Text("Oui"),
+          child: const Text("Oui"),
           onPressed: () {
             Navigator.of(context).pop();
             widget.onSend?.call(_value);

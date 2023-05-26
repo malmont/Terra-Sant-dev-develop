@@ -6,7 +6,6 @@ import 'package:flutter_application_1/services/login.service.dart';
 import 'package:flutter_application_1/services/pharmacy.service.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/routes/app.pages.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 

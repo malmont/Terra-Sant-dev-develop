@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/Recommend/recommend.controller.dart';
 import 'package:get/get.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 class RecommendView extends GetView<RecommendController> {
   const RecommendView({Key? key}) : super(key: key);
@@ -13,34 +12,34 @@ class RecommendView extends GetView<RecommendController> {
           title: const Text("Partager"),
           centerTitle: true,
         ),
-        body: SafeArea(
+        body:  SafeArea(
           child: SingleChildScrollView(
             child: Center(
               child: Column(
                 children: <Widget>[
-                  const SizedBox(
+                  SizedBox(
                     height: 80,
                   ),
-                  QrImage(
-                    data: "Partagez avec vos amis",
-                    version: QrVersions.auto,
-                    size: 320,
-                    gapless: false,
-                  ),
-                  const SizedBox(
+                  // QrImage(
+                  //   data: "Partagez avec vos amis",
+                  //   version: QrVersions.auto,
+                  //   size: 320,
+                  //   gapless: false,
+                  // ),
+                  SizedBox(
                     height: 20,
                     width: 100,
                   ),
-                  QrImage(
-                    data: "Partagez avec vos amis",
-                    version: QrVersions.auto,
-                    size: 320,
-                    gapless: false,
-                    embeddedImage: const AssetImage('assets/images/logo.png'),
-                    embeddedImageStyle: QrEmbeddedImageStyle(
-                      size: const Size(120, 120),
-                    ),
-                  )
+                  // QrImage(
+                  //   data: "Partagez avec vos amis",
+                  //   version: QrVersions.auto,
+                  //   size: 320,
+                  //   gapless: false,
+                  //   embeddedImage: const AssetImage('assets/images/logo.png'),
+                  //   embeddedImageStyle: QrEmbeddedImageStyle(
+                  //     size: const Size(120, 120),
+                  //   ),
+                  // )
                 ],
               ),
             ),

@@ -32,11 +32,11 @@ class PharmacieView extends GetView<PharmacieController> {
           ),
         ],
       ),
-      body: SafeArea(
+      body:  SafeArea(
         child: SingleChildScrollView(
           child: Center(
             child: Column(
-              children: const [
+              children: [
                 SizedBox(height: 30),
                 Pharmacies(),
               ],

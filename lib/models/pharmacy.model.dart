@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/declaration.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';
 import 'package:flutter_application_1/services/pharmacy.service.dart';
@@ -114,7 +113,7 @@ class Pharmacies extends StatelessWidget {
 }
 
 class PharmaciesCard extends StatelessWidget {
-  PharmaciesCard({
+  const PharmaciesCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -136,7 +135,7 @@ class PharmaciesCard extends StatelessWidget {
       child: SizedBox(
         // width: getProportionateScreenWidth(width),
         child: Card(
-          color: Color(0xFFA3FBF2),
+          color: const Color(0xFFA3FBF2),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -294,9 +293,9 @@ class PharmaciesCard extends StatelessWidget {
                               context: context,
                               builder: (context) => AlertDialog(
                                     title: const Text('Confirmation'),
-                                    content: Column(
+                                    content:  Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        children: const [
+                                        children: [
                                           Text(('Vous voulez supprimer?'))
                                         ]),
                                     actions: <Widget>[

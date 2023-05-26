@@ -1,14 +1,10 @@
 //import 'dart:html';
 
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_application_1/models/availabilityUser.model.dart';
-import 'package:flutter_application_1/modules/app/auth/SignIn/signin.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/homepage.controller.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/routes/app.pages.dart';
 import 'package:flutter_application_1/services/availabilityUser.service.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';

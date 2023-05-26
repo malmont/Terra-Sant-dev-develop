@@ -2,7 +2,6 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/availabilityUser.model.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
-import 'package:flutter_application_1/shared/widgets/drawer/navigation_drawer.dart';
 import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
 
@@ -72,11 +71,11 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     }
                   },
                   onSaved: (value) {},
-                  items: <DropdownMenuItem<String>>[
+                  items:  <DropdownMenuItem<String>>[
                     DropdownMenuItem(
                       value: "All",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -87,7 +86,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Janvier",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -99,7 +98,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Fevrier",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -113,7 +112,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Mars",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -127,7 +126,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Avril",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -141,7 +140,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Mai",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -155,7 +154,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Juin",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -169,7 +168,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Juillet",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -183,7 +182,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Aout",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -197,7 +196,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Septembre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -211,7 +210,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Octobre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -225,7 +224,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Novembre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -239,7 +238,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Decembre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -286,11 +285,11 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     }
                   },
                   onSaved: (value) {},
-                  items: <DropdownMenuItem<String>>[
+                  items:  <DropdownMenuItem<String>>[
                     DropdownMenuItem(
                       value: "All",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.all_out, size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
                           Text("All", style: TextStyle(color: Colors.black)),
@@ -300,7 +299,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Etudiant",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.add_link, size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
                           Text("Etudiant",
@@ -311,7 +310,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Preparateur",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.stadium, size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
                           Text(
@@ -324,7 +323,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Pharmacien",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.api, size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
                           Text(
@@ -337,7 +336,7 @@ class HomepagePharViewTri extends GetView<HomepagePharController> {
                     DropdownMenuItem(
                       value: "Autre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.devices_other,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),

@@ -87,9 +87,9 @@ class ViewingMapController extends GetxController with StateMixin {
       PointLatLng(end.latitude, end.longitude),
       travelMode: TravelMode.driving,
     );
-    result.points.forEach((element) {
+    for (var element in result.points) {
       routePoints.add(LatLng(element.latitude, element.longitude));
-    });
+    }
     routePoints.refresh();
     showToast(routePoints.length.toString());
     change(null, status: RxStatus.success());

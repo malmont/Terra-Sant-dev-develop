@@ -58,14 +58,20 @@ class DocumentController extends GetxController
 
   onUploadImage(PlatformFile result) async {
     var dio = Dio();
-    var multipart = MultipartFile.fromFileSync(result.path ?? '',
-        filename: result.name);
+    var multipart =
+        MultipartFile.fromFileSync(result.path ?? '', filename: result.name);
 
     var formData = FormData.fromMap({'file': multipart});
     try {
-     dio.post('http://51.178.83.92:5000/upload=61', data: formData);
+      dio.post(
+        'http://51.178.83.92:5000/upload=61',
+        data: formData,
+        onSendProgress: (int sent, int total) {
+          print('$sent $total');
+        },
+      );
     } catch (e) {
-     debugPrint('e: $e');
+      debugPrint('e: $e');
     }
   }
 }

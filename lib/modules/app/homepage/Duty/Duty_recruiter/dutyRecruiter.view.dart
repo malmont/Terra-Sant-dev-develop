@@ -160,9 +160,9 @@ class DutyRecruiterView extends GetView<DutyRecruiterController> {
                             ],
                           ),
                         ),
-                        Row(
+                         Row(
                           children: [
-                            const SizedBox(
+                            SizedBox(
                               height: 800,
                               width: 300,
                             ),

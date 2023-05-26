@@ -146,7 +146,7 @@ class OfferForUsers extends StatelessWidget {
 }
 
 class OfferForPharCard extends StatelessWidget {
-  OfferForPharCard({
+  const OfferForPharCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -281,10 +281,10 @@ class OfferForPharCard extends StatelessWidget {
                                                       ),
                                                       elevation: 5,
                                                     ),
-                                                    content: Column(
+                                                    content:  Column(
                                                         mainAxisSize:
                                                             MainAxisSize.min,
-                                                        children: const [
+                                                        children: [
                                                           Text(
                                                             "Par téléphone",
                                                           ),
@@ -387,7 +387,7 @@ class OfferForUserCard extends StatelessWidget {
                         showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
-                                  title: Text('Détail'),
+                                  title: const Text('Détail'),
                                   content: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -402,17 +402,17 @@ class OfferForUserCard extends StatelessWidget {
                                       ]),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: Text("Question?"),
+                                      child: const Text("Question?"),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                         showDialog(
                                             context: context,
                                             builder: (context) => AlertDialog(
-                                                  title: Text('Contact nous'),
-                                                  content: Column(
+                                                  title: const Text('Contact nous'),
+                                                  content:  Column(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
-                                                      children: const [
+                                                      children: [
                                                         Text(
                                                           "Par téléphone",
                                                         ),

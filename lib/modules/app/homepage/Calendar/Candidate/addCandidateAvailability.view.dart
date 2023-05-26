@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/addCandidateAvailability.controller.dart';
 import 'package:flutter_application_1/shared/widgets/button/rounded_button.dart';
-import 'package:flutter_application_1/shared/widgets/drawer/navigation_drawer.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class AddCandidateAvailabilityView extends StatefulWidget {
-  AddCandidateAvailabilityView({Key? key}) : super(key: key);
+  const AddCandidateAvailabilityView({Key? key}) : super(key: key);
 
   @override
   State<AddCandidateAvailabilityView> createState() =>

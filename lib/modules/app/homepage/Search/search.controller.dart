@@ -1,7 +1,7 @@
 import 'package:flutter_application_1/routes/app.pages.dart';
 import 'package:get/get.dart';
 
-class SearchController extends GetxController {
+class SearchController1 extends GetxController {
   navigateToHome() {
     Get.toNamed(Routes.homepageRoute);
   }

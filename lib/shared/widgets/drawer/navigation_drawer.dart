@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/auth/SignIn/signin.controller.dart';
@@ -173,7 +172,7 @@ class NavigationDrawerWidget extends GetView<NavigationDrawerController> {
                     // Navigator.pushNamed(context, '/auth');
                     signInController.saveUserInit();
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => AuthView()));
+                        MaterialPageRoute(builder: (context) => const AuthView()));
                   },
                 ),
               ],

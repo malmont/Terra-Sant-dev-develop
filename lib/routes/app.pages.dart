@@ -25,7 +25,6 @@ import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/ad
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/candidateAvailability.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Complex/complex_exemple.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/PharmacieInfo/PharmacieInfo.view.dart';
-import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/ajouterPharmacie/RecuAjouterPharmacie.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/ajouterPharmacie/RecuAjouterPharmacie.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/besoin/Recruiter_calendar.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/declaration.view.dart';
@@ -34,7 +33,6 @@ import 'package:flutter_application_1/modules/app/homepage/Drawer/Contact/contac
 import 'package:flutter_application_1/modules/app/homepage/Drawer/Favorite/Candidate/candidate_favotite.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/GoogleMap/SearchingAddress/searching_address.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/GoogleMap/ViewingMap/viewing_map.view.dart';
-import 'package:flutter_application_1/modules/app/homepage/Drawer/GoogleMap/google_map.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/Recommend/recommend.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/Settings/setting.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_candidate/Details/Future/detail_future_candidate.view.dart';
@@ -65,7 +63,6 @@ import 'package:flutter_application_1/modules/app/homepage/My/my_recruiter.view.
 import 'package:flutter_application_1/modules/app/homepage/My/pharmacie/EditMyPharmacy/editMyPharmacy.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/My/pharmacie/ajouterPharmacie/ajouterPharmacie.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/My/pharmacie/pharmacie.view.dart';
-import 'package:flutter_application_1/modules/app/homepage/Search/demande.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Search/demande.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Search/demandeToPhar.view.dart';
 import 'package:flutter_application_1/modules/app/homepage/Search/search.view.dart';
@@ -192,7 +189,7 @@ class AppPages {
     GetPage(
         name: Routes.candidateCalendar, page: () => CandidateCalendarView()),
     GetPage(name: Routes.declaration, page: () => const DeclarationView()),
-    GetPage(name: Routes.ajouterPharmacie, page: () => AjouterPharmacieView()),
+    GetPage(name: Routes.ajouterPharmacie, page: () => const AjouterPharmacieView()),
     GetPage(name: Routes.basicExemple, page: () => const BasicExempleView()),
     GetPage(name: Routes.complexExemple, page: () => ComplexExempleView()),
     GetPage(
@@ -215,7 +212,7 @@ class AppPages {
     GetPage(name: Routes.pharmacieInfo, page: () => const PharmacieInfoView()),
     GetPage(name: Routes.pharmacie, page: () => const PharmacieView()),
     GetPage(name: Routes.myRecruiter, page: () => const MyRecruiterView()),
-    GetPage(name: Routes.ajouterPharmacie, page: () => AjouterPharmacieView()),
+    GetPage(name: Routes.ajouterPharmacie, page: () => const AjouterPharmacieView()),
     GetPage(
         name: Routes.recuAjouterPharmacieRoute,
         page: () => const RecuAjouterPharmacieView()),
@@ -227,7 +224,7 @@ class AppPages {
         page: () => const CandidateAvailabilityView()),
     GetPage(
         name: Routes.addCandidateAvailability,
-        page: () => AddCandidateAvailabilityView()),
+        page: () => const AddCandidateAvailabilityView()),
     GetPage(
         name: Routes.ajouterMission, page: () => const AjouterMissionView()),
     GetPage(

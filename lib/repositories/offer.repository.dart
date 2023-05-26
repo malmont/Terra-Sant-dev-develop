@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:get/get.dart';
 
@@ -11,12 +10,12 @@ class OfferRepository extends GetConnect {
   }
 
   Future getInfos() => get("/offers");
-  Future setReaded(id) => patch("/offers/setReaded=${id}", id);
-  Future setReadedByPhar(id) => patch("/offers/setReadedByPhar=${id}", id);
-  Future setNotNew(id) => patch("/offers/setNotNew=${id}", id);
-  Future setNotNewByPhar(id) => patch("/offers/setNotNewByPhar=${id}", id);
+  Future setReaded(id) => patch("/offers/setReaded=$id", id);
+  Future setReadedByPhar(id) => patch("/offers/setReadedByPhar=$id", id);
+  Future setNotNew(id) => patch("/offers/setNotNew=$id", id);
+  Future setNotNewByPhar(id) => patch("/offers/setNotNewByPhar=$id", id);
   Future getHowManyUnreadOffer(id) =>
-      get("/offers/getHowManyUnreadOffer=${id}");
+      get("/offers/getHowManyUnreadOffer=$id");
   Future getHowManyUnreadOfferByPhar(id) =>
-      get("/offers/getHowManyUnreadOfferByPhar=${id}");
+      get("/offers/getHowManyUnreadOfferByPhar=$id");
 }

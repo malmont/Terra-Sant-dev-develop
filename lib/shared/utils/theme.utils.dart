@@ -7,7 +7,7 @@ class ThemeUtils {
   static final themeData = ThemeData(
       scaffoldBackgroundColor: Colors.white,
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
           color: Colors.black,
           fontSize: 36.0,
         ),
@@ -15,7 +15,7 @@ class ThemeUtils {
   static final themeDataDark = ThemeData(
       scaffoldBackgroundColor: Colors.black,
       textTheme: const TextTheme(
-          headline1: TextStyle(
+          displayLarge: TextStyle(
         color: Colors.white,
         fontSize: 36.0,
       )));

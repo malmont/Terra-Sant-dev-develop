@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/explorer_pharmacie.model.dart';
 import 'package:flutter_application_1/models/pharmacy.model.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/declaration.controller.dart';
-import 'package:flutter_application_1/shared/utils/theme.utils.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:like_button/like_button.dart';
 
 class DeclarationView extends GetView<DeclarationController> {
   const DeclarationView({Key? key}) : super(key: key);

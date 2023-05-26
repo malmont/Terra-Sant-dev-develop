@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/modules/app/homepage/homepage.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
 import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
@@ -103,7 +102,7 @@ class DemandeToPharForUsers extends StatelessWidget {
 }
 
 class DemandeToPharForUserCard extends StatelessWidget {
-  DemandeToPharForUserCard({
+  const DemandeToPharForUserCard({
     Key? key,
     this.width = 140,
     this.aspectRetio = 1.02,
@@ -271,15 +270,15 @@ class DemandeToPharForUserCard extends StatelessWidget {
                                         const SizedBox(
                                           height: 10,
                                         ),
-                                        Card(
+                                         Card(
                                           child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: SizedBox(
                                               width: 300,
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
-                                                children: const [
+                                                children: [
                                                   Padding(
                                                     padding:
                                                         EdgeInsets.all(2.0),
@@ -368,16 +367,16 @@ class DemandeToPharForUserCard extends StatelessWidget {
                               context: context,
                               builder: (context) => AlertDialog(
                                     title: const Text('Refuser et supprimé？？？'),
-                                    content: Column(
+                                    content:  Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        children: const [
+                                        children: [
                                           Text(
                                             "Refuser",
                                           ),
                                         ]),
                                     actions: <Widget>[
                                       TextButton(
-                                        child: new Text("Pas mtn"),
+                                        child: const Text("Pas mtn"),
                                         onPressed: () {
                                           // homepageController.userSendEmailToTerraAcceptDemandeToPhar(
                                           // '');

@@ -212,8 +212,8 @@ class HomepagePharController extends GetxController with StateMixin {
     }
   }
 
-  sendEmailDemandeFromInterToPhar(demandeToPhar_id) {
-    demandeToPharService.sendEmailDemandeFromInterToPhar(demandeToPhar_id);
+  sendEmailDemandeFromInterToPhar(demandetopharId) {
+    demandeToPharService.sendEmailDemandeFromInterToPhar(demandetopharId);
   }
 
   @override
@@ -459,14 +459,14 @@ class HomepagePharController extends GetxController with StateMixin {
 
   Rx<String> errorMessage = "".obs;
 
-  sendDemande(BuildContext context, avlU_id, user_avlU_id,
+  sendDemande(BuildContext context, avluId, userAvluId,
       AvailabilityPhar? selectedMyAVLP) async {
     if (selectedMyAVLP.toString() == '0') {
       errorMessage.value = "Champs obligatoire";
     } else {
       demande.avlP_id = selectedMyAVLP?.avlP_id;
-      demande.avlU_id = avlU_id;
-      demande.user_avlU_id = user_avlU_id;
+      demande.avlU_id = avluId;
+      demande.user_avlU_id = userAvluId;
       // demande.readed = 'NO';
       // demande.newOrNot = 'YES';
       // demande.refuse = 'NO';
@@ -537,7 +537,7 @@ class IconBtnWithCounter extends StatelessWidget {
             height: getProportionateScreenWidth(46),
             width: getProportionateScreenWidth(46),
             decoration: BoxDecoration(
-                color: const Color(0).withOpacity(0.2), shape: BoxShape.circle),
+                color: const Color(0x00000000).withOpacity(0.2), shape: BoxShape.circle),
             child: SvgPicture.asset(svgSrc),
           ),
           if (num0fItems != 0)

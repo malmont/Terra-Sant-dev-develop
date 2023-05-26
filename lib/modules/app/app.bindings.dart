@@ -22,7 +22,6 @@ import 'package:flutter_application_1/modules/app/error/access/File/file_access.
 import 'package:flutter_application_1/modules/app/error/access/GPS/gps_access.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Basic/basic_exemple.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/Candidate_calendar.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/addCandidateAvailability.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/candidateAvailability.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Complex/complex_exemple.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/PharmacieInfo/PharmacieInfo.controller.dart';
@@ -33,7 +32,6 @@ import 'package:flutter_application_1/modules/app/homepage/Calendar/Recruiter/re
 import 'package:flutter_application_1/modules/app/homepage/Drawer/Contact/contact.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/GoogleMap/SearchingAddress/searching_address.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/GoogleMap/ViewingMap/viewing_map.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/Drawer/GoogleMap/google_map.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/Recommend/recommend.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Drawer/Settings/setting.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_candidate/Details/Future/detail_future_candidate.controller.dart';
@@ -42,7 +40,6 @@ import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_candidate/D
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_candidate/dutyCandidate.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_candidate/rDVfixeCandidate.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Description/description.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Details/Future/ajouteMission/ajoute_mission.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Details/Future/detail_future_recruiter.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Details/Now/detail_now_recruiter.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Details/Pass/detail_pass_recruiter.controller.dart';
@@ -120,7 +117,7 @@ class AppBindings extends Bindings {
     Get.lazyPut(() => DutyCandidateController(), fenix: true);
     Get.lazyPut(() => GooglePlaceApiController(), fenix: true);
     Get.lazyPut(() => SettingController(), fenix: true);
-    Get.lazyPut(() => SearchController(), fenix: true);
+    Get.lazyPut(() => SearchController1(), fenix: true);
     Get.lazyPut(() => NothingFoundController(), fenix: true);
     Get.lazyPut(() => NetWorkErrorController(), fenix: true);
     Get.lazyPut(() => GpsAccessController(), fenix: true);

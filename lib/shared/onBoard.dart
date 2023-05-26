@@ -1,12 +1,8 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../modules/app/auth/SignIn/signin.controller.dart';
-import '../modules/app/auth/SignIn/signin.view.dart';
 import '../modules/app/auth/auth.view.dart';
 import '../modules/app/homepage/homepage.view.dart';
 import '../modules/app/homepage/homepagePhar.view.dart';
@@ -23,7 +19,7 @@ class OnBoard extends StatelessWidget {
           ? _authManager.typeHome.value
               ? const HomepagePharView()
               : const HomepageView()
-          : AuthView();
+          : const AuthView();
     });
   }
 }

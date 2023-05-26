@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:get/get.dart';
 
@@ -11,12 +10,12 @@ class DemandeRepository extends GetConnect {
   }
 
   Future getInfos() => get("/demande");
-  Future getHowManyUnread(id) => get("/demande/getHowManyUnread=${id}");
-  Future setReaded(id) => patch("/demande/setReaded=${id}", id);
-  Future setNotNew(id) => patch("/demande/setNotNew=${id}", id);
-  Future setAcceptYES(id) => patch("/demande/setAcceptYES=${id}", id);
-  Future setRefuseYES(id) => patch("/demande/setRefuseYES=${id}", id);
+  Future getHowManyUnread(id) => get("/demande/getHowManyUnread=$id");
+  Future setReaded(id) => patch("/demande/setReaded=$id", id);
+  Future setNotNew(id) => patch("/demande/setNotNew=$id", id);
+  Future setAcceptYES(id) => patch("/demande/setAcceptYES=$id", id);
+  Future setRefuseYES(id) => patch("/demande/setRefuseYES=$id", id);
   Future sendDemande(body) => post("/demande/add", body);
   Future sendEmailDemandeFromPharToInter(id) =>
-      patch("/demande/sendEmailDemandeFromPharToInter=${id}", id);
+      patch("/demande/sendEmailDemandeFromPharToInter=$id", id);
 }

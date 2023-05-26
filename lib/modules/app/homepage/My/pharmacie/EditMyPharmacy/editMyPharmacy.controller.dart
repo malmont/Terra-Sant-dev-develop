@@ -1,13 +1,9 @@
 import 'dart:convert';
-import 'package:flutter_application_1/models/explorer_pharmacie.model.dart';
 import 'package:flutter_application_1/models/pharmacy.model.dart';
-import 'package:flutter_application_1/models/user.model.dart';
 import 'package:flutter_application_1/modules/app/auth/SignIn/signin.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepagePhar.controller.dart';
 import 'package:flutter_application_1/services/login.service.dart';
 import 'package:flutter_application_1/services/pharmacy.service.dart';
-import 'package:flutter_application_1/services/recruiter.service.dart';
-import 'package:flutter_application_1/services/signUp.service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';

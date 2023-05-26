@@ -1,4 +1,3 @@
-import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/bookmark_model.dart';
 import 'package:flutter_application_1/modules/app/app.bindings.dart';

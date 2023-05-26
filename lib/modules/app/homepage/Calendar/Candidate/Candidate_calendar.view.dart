@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/homepage/Calendar/Candidate/Candidate_calendar.controller.dart';
-import 'package:flutter_application_1/routes/app.pages.dart';
-import 'package:flutter_application_1/shared/widgets/button/rounded_button.dart';
 import 'package:flutter_application_1/shared/widgets/drawer/navigation_drawer.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 class CandidateCalendarView extends GetView<CandidateCalendarController> {
   final calendarController1 = CandidateCalendarController();

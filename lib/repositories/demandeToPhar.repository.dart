@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:get/get.dart';
 
@@ -12,12 +11,12 @@ class DemandeToPharRepository extends GetConnect {
 
   Future getInfos() => get("/demandeToPhar");
   Future getHowManyUnreadToPhar(id) =>
-      get("/demandeToPhar/getHowManyUnread=${id}");
-  Future setReaded(id) => patch("/demandeToPhar/setReaded=${id}", id);
-  Future setNotNew(id) => patch("/demandeToPhar/setNotNew=${id}", id);
-  Future setAcceptYES(id) => patch("/demandeToPhar/setAcceptYES=${id}", id);
-  Future setRefuseYES(id) => patch("/demandeToPhar/setRefuseYES=${id}", id);
+      get("/demandeToPhar/getHowManyUnread=$id");
+  Future setReaded(id) => patch("/demandeToPhar/setReaded=$id", id);
+  Future setNotNew(id) => patch("/demandeToPhar/setNotNew=$id", id);
+  Future setAcceptYES(id) => patch("/demandeToPhar/setAcceptYES=$id", id);
+  Future setRefuseYES(id) => patch("/demandeToPhar/setRefuseYES=$id", id);
   Future sendDemandeToPhar(body) => post("/demandeToPhar/add", body);
   Future sendEmailDemandeFromInterToPhar(id) =>
-      patch("/demandeToPhar/sendEmailDemandeFromInterToPhar=${id}", id);
+      patch("/demandeToPhar/sendEmailDemandeFromInterToPhar=$id", id);
 }

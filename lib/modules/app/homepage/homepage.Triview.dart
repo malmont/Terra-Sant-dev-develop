@@ -1,10 +1,7 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/availabilityPhar.model.dart';
 import 'package:flutter_application_1/modules/app/homepage/homepage.controller.dart';
-import 'package:flutter_application_1/shared/plane_indicator.dart';
-import 'package:flutter_application_1/shared/widgets/drawer/navigation_drawer.dart';
 import 'package:flutter_application_1/shared/utils/theme.utils.dart';
 import 'package:get/get.dart';
 
@@ -74,11 +71,11 @@ class HomepageTriView extends GetView<HomepageController> {
                     }
                   },
                   onSaved: (value) {},
-                  items: <DropdownMenuItem<String>>[
+                  items:  <DropdownMenuItem<String>>[
                     DropdownMenuItem(
                       value: "All",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -89,7 +86,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Janvier",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -101,7 +98,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Fevrier",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -115,7 +112,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Mars",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -129,7 +126,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Avril",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -143,7 +140,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Mai",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -157,7 +154,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Juin",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -171,7 +168,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Juillet",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -185,7 +182,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Aout",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -199,7 +196,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Septembre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -213,7 +210,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Octobre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -227,7 +224,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Novembre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),
@@ -241,7 +238,7 @@ class HomepageTriView extends GetView<HomepageController> {
                     DropdownMenuItem(
                       value: "Decembre",
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.date_range,
                               size: 30.0, color: Colors.black),
                           SizedBox(width: 10),

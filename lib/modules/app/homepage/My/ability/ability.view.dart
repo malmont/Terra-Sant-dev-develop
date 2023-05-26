@@ -30,10 +30,10 @@ class AbilityView extends GetView<AbilityController> {
               onChanged: (value) {
                 // controller.selectedDropdownText.value = value;
                 controller.selectedOption.value = "";
-                controller.selectedDropdownText.value.forEach((element) {
+                for (var element in controller.selectedDropdownText.value) {
                   controller.selectedOption.value =
                       controller.selectedOption.value + " " + element;
-                });
+                }
               },
               selectedValues: controller.selectedDropdownText.value,
             ),
@@ -47,10 +47,10 @@ class AbilityView extends GetView<AbilityController> {
               onChanged: (value) {
                 // controller.selectedOptionList.value = value;
                 controller.selectedOption2.value = "";
-                controller.selectedOptionList.value.forEach((element) {
+                for (var element in controller.selectedOptionList.value) {
                   controller.selectedOption2.value =
                       controller.selectedOption2.value + " " + element;
-                });
+                }
               },
               selectedValues: controller.selectedOptionList.value,
             ),

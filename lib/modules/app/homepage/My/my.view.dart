@@ -59,8 +59,8 @@ class MyView extends GetView<MyController> {
                     //   onPressed: () => controller.navigateToAbility(),
                     // ),
                     TextButton(
-                      child: Row(
-                        children: const [
+                      child:  Row(
+                        children: [
                           Icon(Icons.file_copy),
                           Text("Mes documents"),
                         ],
@@ -77,8 +77,8 @@ class MyView extends GetView<MyController> {
                     //   onPressed: () => controller.navigateToBookmarksPage(),
                     // ),
                     TextButton(
-                      child: Row(
-                        children: const [
+                      child:  Row(
+                        children: [
                           Icon(Icons.logout),
                           Text("Déconnection"),
                         ],

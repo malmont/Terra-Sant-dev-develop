@@ -12,7 +12,6 @@ import 'package:flutter_application_1/modules/app/auth/SignIn/signin.controller.
 import 'package:flutter_application_1/routes/app.pages.dart';
 import 'package:flutter_application_1/services/availabilityPhar.service.dart';
 import 'package:flutter_application_1/services/availabilityUser.service.dart';
-import 'package:flutter_application_1/services/demande.service.dart';
 import 'package:flutter_application_1/services/demandeToPhar.service.dart';
 import 'package:flutter_application_1/services/offer.service.dart';
 import 'package:flutter_application_1/services/pharmacy.service.dart';
@@ -36,7 +35,7 @@ class HomepageController extends GetxController with StateMixin {
 
   Timer? _timer;
 
-  EasyRefreshController _controller =
+  final EasyRefreshController _controller =
       EasyRefreshController(controlFinishRefresh: true);
   EasyRefreshController get controller => _controller;
 
@@ -217,8 +216,8 @@ class HomepageController extends GetxController with StateMixin {
     }
   }
 
-  sendEmailDemandeFromPharToInter(demande_id) {
-    demandeService.sendEmailDemandeFromPharToInter(demande_id);
+  sendEmailDemandeFromPharToInter(demandeId) {
+    demandeService.sendEmailDemandeFromPharToInter(demandeId);
   }
 
   void setDemandeRefused(Demande demande) async {
@@ -448,7 +447,7 @@ class HomepageController extends GetxController with StateMixin {
     super.dispose();
   }
 
-  AvailabilityUser? selectedMyAVLU = null;
+  AvailabilityUser? selectedMyAVLU;
   void setSelected(n, value) {
     if (n == 1) {
       selectedMyAVLU = value;
@@ -464,13 +463,13 @@ class HomepageController extends GetxController with StateMixin {
 
   Rx<String> errorMessage = "".obs;
 
-  sendDemandeToPhar(BuildContext context, avlP_id, user_avlP_id) async {
+  sendDemandeToPhar(BuildContext context, avlpId, userAvlpId) async {
     if (selectedMyAVLU.toString() == '0') {
       errorMessage.value = "Champs obligatoire";
     } else {
       demandeToPhar.avlU_id = selectedMyAVLU?.avlUId;
-      demandeToPhar.avlP_id = avlP_id;
-      demandeToPhar.user_avlP_id = user_avlP_id;
+      demandeToPhar.avlP_id = avlpId;
+      demandeToPhar.user_avlP_id = userAvlpId;
       // demande.readed = 'NO';
       // demande.newOrNot = 'YES';
       // demande.refuse = 'NO';
@@ -496,18 +495,18 @@ class HomepageController extends GetxController with StateMixin {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('Vous avez déja demandé'),
-              content: Text(
+              title: const Text('Vous avez déja demandé'),
+              content: const Text(
                   ('Soyez patiente, si il accepet, nous allons vous contacter par mail')),
               actions: <Widget>[
                 TextButton(
-                  child: new Text("Cancel"),
+                  child: const Text("Cancel"),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
                 TextButton(
-                  child: Text("ok"),
+                  child: const Text("ok"),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },

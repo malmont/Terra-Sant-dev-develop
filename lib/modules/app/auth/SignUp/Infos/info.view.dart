@@ -107,18 +107,18 @@ class InfoView extends GetView<InfoController> {
                         child: RichText(
                           text: TextSpan(
                             text: 'J\'accepte les ',
-                            style: Get.textTheme.bodyText1,
+                            style: Get.textTheme.bodyLarge,
                             children: <TextSpan>[
                               TextSpan(
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () => Get.dialog(
-                                        Scaffold(
+                                         Scaffold(
                                           body: SingleChildScrollView(
                                             child: Padding(
                                               padding:
-                                                  const EdgeInsets.all(24.0),
+                                                  EdgeInsets.all(24.0),
                                               child: Column(
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     "Accord de confidentialité",
                                                     textAlign: TextAlign.center,

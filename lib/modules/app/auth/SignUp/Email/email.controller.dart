@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/app/auth/auth.controller.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';
@@ -67,8 +66,8 @@ class EmailController extends GetxController with StateMixin {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('Vous allez reçu un mail'),
-              content: Text(('SVP Activé par cliquer le link dans le mail')),
+              title: const Text('Vous allez reçu un mail'),
+              content: const Text(('SVP Activé par cliquer le link dans le mail')),
               actions: <Widget>[
                 // TextButton(
                 //   child: new Text("Cancel"),
@@ -77,15 +76,15 @@ class EmailController extends GetxController with StateMixin {
                 //   },
                 // ),
                 TextButton(
-                  child: Text("Déja cliqué"),
+                  child: const Text("Déja cliqué"),
                   onPressed: () async {
                     Navigator.of(context).pop();
-                    var ifMailActive_by_id = await signUpService
+                    var ifmailactiveById = await signUpService
                         .ifMailActive_by_id(authController.newUser.userId);
                     print(
                         '----------------------ifMailActive_by_id-----------: ' +
-                            ifMailActive_by_id);
-                    if (ifMailActive_by_id == 'TRUE') {
+                            ifmailactiveById);
+                    if (ifmailactiveById == 'TRUE') {
                       navigateToPosition();
                     } else {
                       showNotClicked(context);
@@ -100,11 +99,11 @@ class EmailController extends GetxController with StateMixin {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('Vous n\'avez pas encore activer'),
-              content: Text(('SVP Activé par cliquer le link dans le mail')),
+              title: const Text('Vous n\'avez pas encore activer'),
+              content: const Text(('SVP Activé par cliquer le link dans le mail')),
               actions: <Widget>[
                 TextButton(
-                  child: new Text("Cancel"),
+                  child: const Text("Cancel"),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },

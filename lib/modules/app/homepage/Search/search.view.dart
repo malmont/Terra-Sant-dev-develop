@@ -3,7 +3,7 @@ import 'package:flutter_application_1/modules/app/homepage/Search/search.control
 import 'package:flutter_application_1/shared/widgets/Animation/FadeAnimation.dart';
 import 'package:get/get.dart';
 
-class SearchView extends GetView<SearchController> {
+class SearchView extends GetView<SearchController1> {
   const SearchView({Key? key}) : super(key: key);
 
   @override

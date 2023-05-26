@@ -13,13 +13,13 @@ class SmsErrorView extends GetView<SmsErrorController> {
           title: const Text("Error"),
           centerTitle: true,
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 16),
+        body:  Padding(
+          padding: EdgeInsets.only(top: 16),
           child: SingleChildScrollView(
               child: Center(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const []),
+                children: []),
           )),
         ));
   }

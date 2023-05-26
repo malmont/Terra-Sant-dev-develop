@@ -32,8 +32,8 @@ class MyRecruiterView extends GetView<MyRecruiterController> {
                       height: 100,
                     ),
                     TextButton(
-                      child: Row(
-                        children: const [
+                      child:  Row(
+                        children: [
                           Icon(Icons.people),
                           Text("Mon profil"),
                         ],
@@ -41,8 +41,8 @@ class MyRecruiterView extends GetView<MyRecruiterController> {
                       onPressed: () => controller.navigateToProfile(),
                     ),
                     TextButton(
-                      child: Row(
-                        children: const [
+                      child:  Row(
+                        children: [
                           Icon(Icons.local_pharmacy),
                           Text("Mes pharmacies"),
                         ],
@@ -50,8 +50,8 @@ class MyRecruiterView extends GetView<MyRecruiterController> {
                       onPressed: () => controller.navigateToPharmacie(),
                     ),
                     TextButton(
-                      child: Row(
-                        children: const [
+                      child:  Row(
+                        children: [
                           Icon(Icons.file_copy),
                           Text("Mes documents"),
                         ],
@@ -59,8 +59,8 @@ class MyRecruiterView extends GetView<MyRecruiterController> {
                       onPressed: () => controller.navigateToDocument(),
                     ),
                     TextButton(
-                      child: Row(
-                        children: const [
+                      child:  Row(
+                        children: [
                           Icon(Icons.favorite),
                           Text("Mes favorites"),
                         ],
@@ -68,8 +68,8 @@ class MyRecruiterView extends GetView<MyRecruiterController> {
                       onPressed: () => controller.navigateToBookmarksPage(),
                     ),
                     TextButton(
-                      child: Row(
-                        children: const [
+                      child:  Row(
+                        children: [
                           Icon(Icons.logout),
                           Text("Déconnection"),
                         ],

@@ -23,12 +23,12 @@ class ShowUserCVtoPharView extends StatelessWidget {
                     top: 40, bottom: 10, right: 10, left: 10),
                 child: SafeArea(
                   child: controller.isLoading
-                      ? Center(child: Text('loading....'))
+                      ? const Center(child: Text('loading....'))
                       : controller.isFileExist
                           ? PdfView(
                               controller: controller.pdfController!,
                             )
-                          : Center(child: Text('Empty....')),
+                          : const Center(child: Text('Empty....')),
                 ),
               ));
         });

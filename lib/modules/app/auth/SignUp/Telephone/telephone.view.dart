@@ -3,7 +3,6 @@ import 'package:flutter_application_1/shared/widgets/button/rounded_button.dart'
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:get/get.dart';
 import 'telephone.controller.dart';
-import 'package:flutter_application_1/modules/app/auth/SignUp/Telephone/telephone.controller.dart';
 
 class TelephoneView extends GetView<TelephoneController> {
   const TelephoneView({Key? key}) : super(key: key);

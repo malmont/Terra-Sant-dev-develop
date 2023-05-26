@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Details/Future/editAVLP/editAVLP.controller.dart';
 import 'package:flutter_application_1/modules/app/homepage/Duty/Duty_recruiter/Details/editAVLU/editAVLU.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/My/pharmacie/EditMyPharmacy/editMyPharmacy.controller.dart';
-import 'package:flutter_application_1/modules/app/homepage/My/pharmacie/ajouterPharmacie/ajouterPharmacie.controller.dart';
 import 'package:flutter_application_1/shared/widgets/button/rounded_button.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 
 //this page has been changed to local controller, changement like this need to delete in appbindings
