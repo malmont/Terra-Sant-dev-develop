@@ -116,9 +116,9 @@ class InfoView extends GetView<InfoController> {
                                           body: SingleChildScrollView(
                                             child: Padding(
                                               padding:
-                                                  EdgeInsets.all(24.0),
+                                                  const EdgeInsets.all(24.0),
                                               child: Column(
-                                                children: [
+                                                children: const [
                                                   Text(
                                                     "Accord de confidentialité",
                                                     textAlign: TextAlign.center,

@@ -5,7 +5,7 @@ import 'package:flutter_application_1/services/signUp.service.dart';
 import 'package:get/get.dart';
 
 class InfoController extends GetxController with StateMixin {
-  final String title = 'Rejoingnez Terra Santé';
+  final String title = 'Rejoignez Terra Santé';
   final String bonjour = 'Bonjour, si on apprenait à mieux se connaître?';
   final String enregistrer = "Enregistrez";
   final TextEditingController prenomEditingController = TextEditingController();
@@ -48,6 +48,7 @@ class InfoController extends GetxController with StateMixin {
     } else if (isChecked.value == false) {
       errorMessage.value = "Il faut bien lire et valider";
     } else {
+      // authController.newUser.userProfileValidated = 1;
       authController.newUser.userFname = prenomEditingController.text;
       authController.newUser.userName = nomEditingController.text;
       authController.newUser.userBirthdate =
