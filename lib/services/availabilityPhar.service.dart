@@ -40,4 +40,13 @@ class AvailabilityPharService {
       return Future.error(e.toString());
     }
   }
+
+  Future getUsers() async {
+    try {
+      var response = await availabilityPharRepo.getUsers();
+      return response.body;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
 }

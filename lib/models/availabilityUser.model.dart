@@ -405,7 +405,7 @@ class AvailabilityUsersForEditCard extends StatelessWidget {
                                   title: const Text('Confirmation'),
                                   content:  Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      children: [
+                                      children: const [
                                         Text(('Vous voulez le supprimer?'))
                                       ]),
                                   actions: <Widget>[

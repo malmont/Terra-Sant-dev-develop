@@ -8,6 +8,7 @@ class AvailabilityPharRepository extends GetConnect {
   }
 
   Future addAvl(body) => post("/availabilitypharmacy/add", body);
+  Future getUsers() => get("/users");
   Future getInfos() => get("/availabilitypharmacy");
   Future updateAvl(id, body) => patch("/availabilitypharmacy/up=$id", body);
   Future deleteAvl(id) => delete("/availabilitypharmacy/delete=$id");

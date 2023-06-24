@@ -8,6 +8,7 @@ import 'package:flutter_application_1/models/demande.model.dart';
 import 'package:flutter_application_1/models/demandeToPhar.model.dart';
 import 'package:flutter_application_1/models/offer.model.dart';
 import 'package:flutter_application_1/models/pharmacy.model.dart';
+import 'package:flutter_application_1/models/user.model.dart';
 import 'package:flutter_application_1/modules/app/auth/SignIn/signin.controller.dart';
 import 'package:flutter_application_1/routes/app.pages.dart';
 import 'package:flutter_application_1/services/availabilityPhar.service.dart';
@@ -26,12 +27,14 @@ class HomepagePharController extends GetxController with StateMixin {
   PharmacyService pharmacyService = Get.find();
   OfferService offerService = Get.find();
   DemandeToPharService demandeToPharService = Get.find();
-
+//  final SignInController signInController = Get.find();
   List<AvailabilityUser> _list1 = []; //all avlU
   List<AvailabilityPhar> list2 = []; //all avlP of this pharmacien
   List<Pharmacy> listMyPhar = [];
   List<Offer> listAllOffer = [];
   List<DemandeToPhar> listAllDemandeToPhar = [];
+  List<User> ListUser = [];
+
   var unReadOffer = 0.obs;
   var unReadMessage = 0.obs;
   var matching = "13".obs;
@@ -224,6 +227,7 @@ class HomepagePharController extends GetxController with StateMixin {
       queryUnReadOffer();
     });
     // debugPrint('');
+    ShowUser();
     ShowUserAvl();
     ShowMyAvl_Phar();
     ShowMyPhars();
@@ -294,6 +298,32 @@ class HomepagePharController extends GetxController with StateMixin {
 
       default:
         Get.toNamed(Routes.demandeToPhar);
+    }
+  }
+
+  Future ShowUser() async {
+    try {
+      change(null, status: RxStatus.loading());
+      var response = await availabilityPharService.getUsers();
+      manageResponse8(response);
+    } on Error catch (e) {
+      debugPrint('e: ${e.stackTrace}');
+      HelperUtils.showSimpleSnackBar('Une erreur est survenue.');
+      change(null, status: RxStatus.error(e.toString()));
+    }
+  }
+
+  manageResponse8(var response) {
+    debugPrint('response: $response');
+    if (response.toString().contains("error")) {
+      HelperUtils.showSimpleSnackBar(response['error']);
+      change(null, status: RxStatus.success());
+      _controller.finishRefresh(IndicatorResult.fail);
+    } else {
+      ListUser = (response as List).map((e) => User.fromJson(e)).toList();
+      change(null, status: RxStatus.success());
+      update();
+      _controller.finishRefresh();
     }
   }
 
@@ -537,7 +567,8 @@ class IconBtnWithCounter extends StatelessWidget {
             height: getProportionateScreenWidth(46),
             width: getProportionateScreenWidth(46),
             decoration: BoxDecoration(
-                color: const Color(0x00000000).withOpacity(0.2), shape: BoxShape.circle),
+                color: const Color(0x00000000).withOpacity(0.2),
+                shape: BoxShape.circle),
             child: SvgPicture.asset(svgSrc),
           ),
           if (num0fItems != 0)

@@ -8,6 +8,7 @@ class AvailabilityUserRepository extends GetConnect {
   }
 
   Future getInfos() => get("/availabilityuser");
+  Future getUsers() => get("/users");
   Future addAvl(body) => post("/availabilityuser/add", body);
   Future updateAvl(id, body) => patch("/availabilityuser/up=$id", body);
   Future deleteAvl(id) => delete("/availabilityuser/delete=$id");
