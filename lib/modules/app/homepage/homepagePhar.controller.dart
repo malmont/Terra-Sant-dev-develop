@@ -87,7 +87,6 @@ class HomepagePharController extends GetxController with StateMixin {
     for (var listRegion in ListFinal) {
       newList.add(listRegion.region_candidate!.substring(0, 2));
     }
-
     return newList.toSet().toList();
   }
 
@@ -109,7 +108,6 @@ class HomepagePharController extends GetxController with StateMixin {
 
   List<AvailabilityUser> getListAvlUOnlyMatchWithRegion() {
     //get all avlU which correspond to one of the avlPs of this pharmacien match only with  region
-
     final newList = <AvailabilityUser>[];
     for (final avlU in _list1) {
       if (list2
